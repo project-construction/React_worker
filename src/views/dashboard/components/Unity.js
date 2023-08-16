@@ -95,7 +95,7 @@ const Unity = () => {
     return (
             <div>
                 <DashboardCard title="Unity Contents">
-                    <div style={{ display: 'grid', gridTemplateRows: 'repeat(2, 1fr)', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+                    <div style={{ display: 'grid', gridTemplateRows: 'repeat(3, 1fr)', gridTemplateColumns: 'repeat(2, 1fr)', gap: '5px' }}>
                         <Link to="/button1">
                             <button className="image-button">
                                 <img src={require("./기억력.png")} alt="Button 1" />
