@@ -1,10 +1,14 @@
 import React from 'react';
-import { Select, MenuItem } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import DashboardCard from '../../../components/shared/DashboardCard';
-import Chart from 'react-apexcharts';
-
-
+import './Unity.css';
+import {BrowserRouter as Router, Switch, Route, Link, Routes} from 'react-router-dom';
+import attention from './attention';
+import attention2 from './attention2';
+import memory from './memory';
+import memory2 from './memory2';
+import concentration from './concentration';
+import concentration2 from './concentration2';
 const Unity = () => {
 
     // select
@@ -89,23 +93,44 @@ const Unity = () => {
     ];
 
     return (
-
-        <DashboardCard title="Unity Contents" action={
-            <Select
-                labelId="month-dd"
-                id="month-dd"
-                value={month}
-                size="small"
-                onChange={handleChange}
-            >
-                <MenuItem value={1}>March 2023</MenuItem>
-                <MenuItem value={2}>April 2023</MenuItem>
-                <MenuItem value={3}>May 2023</MenuItem>
-            </Select>
-        }>
-
-        </DashboardCard>
+            <div>
+                <DashboardCard title="Unity Contents">
+                    <div style={{ display: 'grid', gridTemplateRows: 'repeat(2, 1fr)', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+                        <Link to="/button1">
+                            <button className="image-button">
+                                <img src={require("./기억력.png")} alt="Button 1" />
+                            </button>
+                        </Link>
+                        <Link to="/button2">
+                            <button className="image-button">
+                                <img src={require("./기억력2.png")} alt="Button 2" />
+                            </button>
+                        </Link>
+                        <Link to="/button3">
+                            <button className="image-button">
+                                <img src={require("./주의력.png")} alt="Button 3" />
+                            </button>
+                        </Link>
+                        <Link to="/button4">
+                            <button className="image-button">
+                                <img src={require("./주의력2.png")} alt="Button 4" />
+                            </button>
+                        </Link>
+                        <Link to="/button5">
+                            <button className="image-button">
+                                <img src={require("./집중력.png")} alt="Button 5" />
+                            </button>
+                        </Link>
+                        <Link to="/button6">
+                            <button className="image-button">
+                                <img src={require("./집중력2.png")} alt="Button 6" />
+                            </button>
+                        </Link>
+                    </div>
+                </DashboardCard>
+            </div>
     );
+
 };
 
 export default Unity;

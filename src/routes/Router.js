@@ -15,7 +15,12 @@ const Shadow = Loadable(lazy(() => import('../views/utilities/Shadow')))
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Register = Loadable(lazy(() => import('../views/authentication/Register')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
-
+const Memory = Loadable(lazy(()=> import ('../views/dashboard/components/memory')));
+const Memory2 = Loadable(lazy(()=> import ('../views/dashboard/components/memory2')));
+const Attention = Loadable(lazy(()=> import ('../views/dashboard/components/attention')));
+const Attention2 = Loadable(lazy(()=> import ('../views/dashboard/components/attention2')));
+const Concentration = Loadable(lazy(()=> import ('../views/dashboard/components/concentration')));
+const Concentration2 = Loadable(lazy(()=> import ('../views/dashboard/components/concentration2')));
 const Router = [
   {
     path: '/',
@@ -28,6 +33,12 @@ const Router = [
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },
       { path: '/ui/shadow', exact: true, element: <Shadow /> },
       { path: '*', element: <Navigate to="/auth/404" /> },
+      { path: '/button1', element: <Memory /> },
+      { path: '/button2', element: <Memory2 /> },
+      { path: '/button3', element: <Attention /> },
+      { path: '/button4', element: <Attention2 /> },
+      { path: '/button5', element: <Concentration /> },
+      { path: '/button6', element: <Concentration2 /> },
     ],
   },
   {
