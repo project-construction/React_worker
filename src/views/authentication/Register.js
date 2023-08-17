@@ -40,7 +40,7 @@ const Register2 = () => (
             <AuthRegister
               subtext={
                 <Typography variant="subtitle1" textAlign="center" color="textSecondary" mb={1}>
-                  노동자 회원가입
+                  근로자 회원가입
                 </Typography>
               }
               subtitle={
