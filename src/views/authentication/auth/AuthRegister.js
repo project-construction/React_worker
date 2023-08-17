@@ -125,7 +125,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
 
 
                 <Typography variant="subtitle1"
-                            fontWeight={600} component="label" htmlFor='role' mb="5px" mt="25px">직책</Typography>
+                            fontWeight={600} component="label" htmlFor='role' mb="5px" mt="25px">직무</Typography>
                 <div style={{ display: 'flex', gap: '10px' }}>
                     <label>
                         <input
@@ -144,12 +144,9 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                             checked={selectedRole === 'worker'}
                             onChange={handleRoleChange}
                         />
-                        노동자
+                        근로자
                     </label>
                 </div>
-
-                
-                
                 
                 <Typography variant="subtitle1"
                     fontWeight={600} component="label" htmlFor='phone_number' mb="5px" mt="25px">휴대전화</Typography>
