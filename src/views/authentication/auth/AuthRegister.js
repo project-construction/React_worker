@@ -147,9 +147,6 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                         노동자
                     </label>
                 </div>
-
-                
-                
                 
                 <Typography variant="subtitle1"
                     fontWeight={600} component="label" htmlFor='phone_number' mb="5px" mt="25px">휴대전화</Typography>
