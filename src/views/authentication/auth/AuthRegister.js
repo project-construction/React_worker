@@ -67,7 +67,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                 />
 
                 <Typography variant="subtitle1"
-                            fontWeight={600} component="label" htmlFor='setPassword' mb="5px" mt="25px">비밀번호 재확인</Typography>
+                            fontWeight={600} component="label" htmlFor='setPassword' mb="5px" mt="25px">비밀번호 확인</Typography>
                 <CustomTextField
                     id="confirm_password"
                     type="password"
@@ -162,8 +162,6 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                 <Typography variant="subtitle1"
                             fontWeight={600} component="label" htmlFor='note' mb="5px" mt="25px">특이사항</Typography>
                 <CustomTextField id="note" variant="outlined" fullWidth />
-
-
 
                 </Stack>
             <Button color="primary" variant="contained" size="large" fullWidth component={Link} to="/auth/login"  disabled={!passwordsMatch} onClick={handleSubmit}>

@@ -16,7 +16,7 @@ const Register2 = () => (
           backgroundSize: '400% 400%',
           animation: 'gradient 15s ease infinite',
           position: 'absolute',
-          height: '100%',
+          height: '200%',
           width: '100%',
           opacity: '0.3',
         },
