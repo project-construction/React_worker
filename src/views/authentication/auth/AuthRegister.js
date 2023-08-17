@@ -50,7 +50,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
         {subtext}
 
         <Box>
-            <Stack mb={12}>
+            <Stack mb={5}>
                 <Typography variant="subtitle1"
                             fontWeight={600} component="label" htmlFor='id' mb="5px">아이디</Typography>
                 <CustomTextField id="id" variant="outlined" fullWidth />
@@ -88,7 +88,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                 <CustomTextField id="division" variant="outlined" fullWidth />
 
                 <Typography variant="subtitle1"
-                    fontWeight={600} component="label" htmlFor='name' mb="5px">이름</Typography>
+                    fontWeight={600} component="label" htmlFor='name' mb="5px" mt="25px">이름</Typography>
                 <CustomTextField id="name" variant="outlined" fullWidth />
 
                 <Typography variant="subtitle1"
