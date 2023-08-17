@@ -44,7 +44,7 @@ const Login2 = () => {
               <AuthLogin
                 subtext={
                   <Typography variant="subtitle1" textAlign="center" color="textSecondary" mb={1}>
-                    노동자 로그인
+                    근로자 로그인
                   </Typography>
                 }
                 subtitle={
