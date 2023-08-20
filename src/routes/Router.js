@@ -15,12 +15,13 @@ const Shadow = Loadable(lazy(() => import('../views/utilities/Shadow')))
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Register = Loadable(lazy(() => import('../views/authentication/Register')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
-const Memory = Loadable(lazy(()=> import ('../views/dashboard/components/memory')));
-const Memory2 = Loadable(lazy(()=> import ('../views/dashboard/components/memory2')));
-const Attention = Loadable(lazy(()=> import ('../views/dashboard/components/attention')));
-const Attention2 = Loadable(lazy(()=> import ('../views/dashboard/components/attention2')));
-const Concentration = Loadable(lazy(()=> import ('../views/dashboard/components/concentration')));
-const Concentration2 = Loadable(lazy(()=> import ('../views/dashboard/components/concentration2')));
+const Memory = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/memory')));
+const Memory2 = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/memory2')));
+const Attention = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/attention')));
+const Attention2 = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/attention2')));
+const Concentration = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/concentration')));
+const Concentration2 = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/concentration2')));
+const Kdas = Loadable(lazy(()=> import ('../views/dashboard/components/Kdas')));
 const Router = [
   {
     path: '/',
@@ -39,6 +40,7 @@ const Router = [
       { path: '/button4', element: <Attention2 /> },
       { path: '/button5', element: <Concentration /> },
       { path: '/button6', element: <Concentration2 /> },
+      { path: '/button7', element: <Kdas /> },
     ],
   },
   {
