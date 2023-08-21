@@ -6,10 +6,7 @@ import {
     CardTitle,
     CardBody,
     Button,
-    Form,
-    FormGroup,
-    Label,
-    Input,
+    Form
 } from "reactstrap";
 import './Kdas.css';
 import DashboardCard from "../../../components/shared/DashboardCard";
@@ -140,8 +137,68 @@ const questions = [
 function Kdas() {
     const [responses, setResponses] = useState([]);
     const [submitted, setSubmitted] = useState(false);
+    const [jwtToken, setJwtToken] = useState(''); // JWT 토큰 상태 변수
     const [scores, setScores] = useState({});
+    const [categoryScores, setCategoryScores] = useState({});
+    let token = localStorage.getItem('token')||'';
+    fetch('',{
+        headers:{
+            'Authorization': token,
+        }
+    }).then(response => response.json())
+        .then(response =>{
+            console.log(response.data);
+        })
+    // 카테고리별 점수 계산 함수
+    const calculateScoresByCategory = () => {
+        const updatedCategoryScores = { ...categoryScores };
 
+        questions.forEach((question, index) => {
+            const category = question.category;
+            const responseValue = parseInt(responses[index] || 0);
+
+            if (!updatedCategoryScores[category]) {
+                updatedCategoryScores[category] = 0;
+            }
+
+            updatedCategoryScores[category] += responseValue;
+        });
+
+        setCategoryScores(updatedCategoryScores);
+    };
+
+    // ... (handleSubmit 함수는 여기에 있습니다)
+
+    const sendCategoryScoresToServer = () => {
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${jwtToken}`
+            },
+            body: JSON.stringify(categoryScores) // 카테고리별 점수 데이터 전송
+        };
+
+        fetch('https://your-server-endpoint.com/submit-category-scores', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Category scores submitted:', data);
+            })
+            .catch(error => {
+                console.error('Error submitting category scores:', error);
+            });
+    };
+
+    const handleSubmit = () => {
+        if (responses.length !== questions.length || responses.includes(undefined)) {
+            alert("응답하지 않은 항목이 있습니다.");
+        } else {
+            alert("설문 제출이 완료되었습니다. 감사합니다.");
+            calculateScoresByCategory();
+            setSubmitted(true);
+            sendCategoryScoresToServer(); // 카테고리별 점수를 서버로 보냄
+        }
+    };
     const handleResponseChange = (index, value) => {
         const newResponses = [...responses];
         newResponses[index] = value;
@@ -152,29 +209,6 @@ function Kdas() {
     const calculateTotal = () => {
         const total = responses.reduce((sum, value) => sum + parseInt(value || 0), 0);
         return total;
-    };
-
-    const calculateScoresByCategory = () => {
-        const categoryScores = {};
-        questions.forEach((question, index) => {
-            const category = question.category;
-            const responseValue = parseInt(responses[index] || 0);
-            if (!categoryScores[category]) {
-                categoryScores[category] = 0;
-            }
-            categoryScores[category] += responseValue;
-        });
-        setScores(categoryScores);
-    };
-
-    const handleSubmit = () => {
-        if (responses.length !== questions.length || responses.includes(undefined)) {
-            alert("응답하지 않은 항목이 있습니다.");
-        } else {
-            alert("설문 제출이 완료되었습니다. 감사합니다.");
-            calculateScoresByCategory();
-            setSubmitted(true);
-        }
     };
 
 

@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
+import PrivateRoute from '../views/dashboard/components/PrivateRoute'; // PrivateRoute 컴포넌트 경로를 수정해야 합니다.
 
 /* ***Layouts**** */
 const FullLayout = Loadable(lazy(() => import('../layouts/full/FullLayout')));
@@ -15,14 +16,14 @@ const Shadow = Loadable(lazy(() => import('../views/utilities/Shadow')))
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Register = Loadable(lazy(() => import('../views/authentication/Register')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
-const Memory = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/memory')));
-const Memory2 = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/memory2')));
-const Attention = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/attention')));
-const Attention2 = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/attention2')));
-const Concentration = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/concentration')));
-const Concentration2 = Loadable(lazy(()=> import ('../views/dashboard/components/UnityContents/concentration2')));
-const Kdas = Loadable(lazy(()=> import ('../views/dashboard/components/Kdas')));
-const Router = [
+const Memory = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/memory')));
+const Memory2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/memory2')));
+const Attention = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/attention')));
+const Attention2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/attention2')));
+const Concentration = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/concentration')));
+const Concentration2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/concentration2')));
+const Kdas = Loadable(lazy(() => import('../views/dashboard/components/Kdas')));
+const Routes = [
   {
     path: '/',
     element: <FullLayout />,
@@ -34,13 +35,13 @@ const Router = [
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },
       { path: '/ui/shadow', exact: true, element: <Shadow /> },
       { path: '*', element: <Navigate to="/auth/404" /> },
-      { path: '/button1', element: <Memory /> },
-      { path: '/button2', element: <Memory2 /> },
-      { path: '/button3', element: <Attention /> },
-      { path: '/button4', element: <Attention2 /> },
-      { path: '/button5', element: <Concentration /> },
-      { path: '/button6', element: <Concentration2 /> },
-      { path: '/button7', element: <Kdas /> },
+      <PrivateRoute path="/button1" element={<Memory />} />,
+      <PrivateRoute path="/button2" element={<Memory2 />} />,
+      <PrivateRoute path="/button3" element={<Attention />} />,
+      <PrivateRoute path="/button4" element={<Attention2 />} />,
+      <PrivateRoute path="/button5" element={<Concentration />} />,
+      <PrivateRoute path="/button6" element={<Concentration2 />} />,
+      <PrivateRoute path="/button7" element={<Kdas />} />,
     ],
   },
   {
@@ -55,4 +56,4 @@ const Router = [
   },
 ];
 
-export default Router;
+export default Routes;

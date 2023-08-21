@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Box,
     Typography,
@@ -8,66 +8,116 @@ import {
     Stack,
     Checkbox
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
 
-const AuthLogin = ({ title, subtitle, subtext }) => (
-    <>
-        {title ? (
-            <Typography fontWeight="700" variant="h2" mb={1}>
-                {title}
-            </Typography>
-        ) : null}
+const AuthLogin = ({ title, subtitle, subtext }) => {
+    const [email, setEmail] = useState(''); // 변경된 부분
+    const [password, setPassword] = useState('');
+    const [rememberDevice, setRememberDevice] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
 
-        {subtext}
+    const handleLogin = async () => {
+        try {
+            const response = await fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+                mode: 'cors'
+            });
 
-        <Stack>
-            <Box>
-                <Typography variant="subtitle1"
-                    fontWeight={600} component="label" htmlFor='username' mb="5px">Username</Typography>
-                <CustomTextField id="username" variant="outlined" fullWidth />
-            </Box>
-            <Box mt="25px">
-                <Typography variant="subtitle1"
-                    fontWeight={600} component="label" htmlFor='password' mb="5px" >Password</Typography>
-                <CustomTextField id="password" type="password" variant="outlined" fullWidth />
-            </Box>
-            <Stack justifyContent="space-between" direction="row" alignItems="center" my={2}>
-                <FormGroup>
-                    <FormControlLabel
-                        control={<Checkbox defaultChecked />}
-                        label="Remeber this Device"
-                    />
-                </FormGroup>
-                <Typography
-                    component={Link}
-                    to="/"
-                    fontWeight="500"
-                    sx={{
-                        textDecoration: 'none',
-                        color: 'primary.main',
-                    }}
-                >
-                    Forgot Password ?
+            if (response.ok) {
+                const data = await response.json();
+                const token = data;
+                console.log(token);
+                localStorage.setItem('token', token);
+                localStorage.setItem('email', email);
+                localStorage.setItem('password', password);
+                navigate('/dashboard');
+                setIsLoggedIn(true);
+            } else {
+                // 로그인 실패 처리
+                console.error('로그인 실패');
+            }
+        } catch (error) {
+            console.error('오류 발생:', error);
+        }
+    };
+
+    return (
+        <>
+            {title ? (
+                <Typography fontWeight="700" variant="h2" mb={1}>
+                    {title}
                 </Typography>
+            ) : null}
+
+            {subtext}
+
+            <Stack>
+                <Box>
+                    <Typography variant="subtitle1" fontWeight={600} component="label" htmlFor='email' mb="5px"> {/* 변경된 부분 */}
+                        Email
+                    </Typography>
+                    <CustomTextField
+                        id="email"
+                        variant="outlined"
+                        fullWidth
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} // 변경된 부분
+                    />
+                </Box>
+                <Box mt="25px">
+                    <Typography variant="subtitle1" fontWeight={600} component="label" htmlFor='password' mb="5px">
+                        Password
+                    </Typography>
+                    <CustomTextField
+                        id="password"
+                        type="password"
+                        variant="outlined"
+                        fullWidth
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </Box>
+                <Stack justifyContent="space-between" direction="row" alignItems="center" my={2}>
+                    <FormGroup>
+                        <FormControlLabel
+                            control={<Checkbox checked={rememberDevice} onChange={() => setRememberDevice(!rememberDevice)} />}
+                            label="Remember this Device"
+                        />
+                    </FormGroup>
+                    <Typography
+                        component={Link}
+                        to="/"
+                        fontWeight="500"
+                        sx={{
+                            textDecoration: 'none',
+                            color: 'primary.main',
+                        }}
+                    >
+                        Forgot Password ?
+                    </Typography>
+                </Stack>
             </Stack>
-        </Stack>
-        <Box>
-            <Button
-                color="primary"
-                variant="contained"
-                size="large"
-                fullWidth
-                component={Link}
-                to="/"
-                type="submit"
-            >
-                Sign In
-            </Button>
-        </Box>
-        {subtitle}
-    </>
-);
+            <Box>
+                <Button
+                    color="primary"
+                    variant="contained"
+                    size="large"
+                    fullWidth
+                    onClick={handleLogin}
+                >
+                    Sign In
+                </Button>
+            </Box>
+            {subtitle}
+        </>
+    );
+};
 
 export default AuthLogin;
