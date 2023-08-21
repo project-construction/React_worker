@@ -50,7 +50,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
         {subtext}
 
         <Box>
-            <Stack mb={12}>
+            <Stack mb={5}>
                 <Typography variant="subtitle1"
                             fontWeight={600} component="label" htmlFor='id' mb="5px">아이디</Typography>
                 <CustomTextField id="id" variant="outlined" fullWidth />
@@ -67,7 +67,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                 />
 
                 <Typography variant="subtitle1"
-                            fontWeight={600} component="label" htmlFor='setPassword' mb="5px" mt="25px">비밀번호 재확인</Typography>
+                            fontWeight={600} component="label" htmlFor='setPassword' mb="5px" mt="25px">비밀번호 확인</Typography>
                 <CustomTextField
                     id="confirm_password"
                     type="password"
@@ -88,7 +88,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                 <CustomTextField id="division" variant="outlined" fullWidth />
 
                 <Typography variant="subtitle1"
-                    fontWeight={600} component="label" htmlFor='name' mb="5px">이름</Typography>
+                    fontWeight={600} component="label" htmlFor='name' mb="5px" mt="25px">이름</Typography>
                 <CustomTextField id="name" variant="outlined" fullWidth />
 
                 <Typography variant="subtitle1"
@@ -125,7 +125,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
 
 
                 <Typography variant="subtitle1"
-                            fontWeight={600} component="label" htmlFor='role' mb="5px" mt="25px">직책</Typography>
+                            fontWeight={600} component="label" htmlFor='role' mb="5px" mt="25px">직무</Typography>
                 <div style={{ display: 'flex', gap: '10px' }}>
                     <label>
                         <input
@@ -144,12 +144,9 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                             checked={selectedRole === 'worker'}
                             onChange={handleRoleChange}
                         />
-                        노동자
+                        근로자
                     </label>
                 </div>
-
-                
-                
                 
                 <Typography variant="subtitle1"
                     fontWeight={600} component="label" htmlFor='phone_number' mb="5px" mt="25px">휴대전화</Typography>
@@ -162,8 +159,6 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                 <Typography variant="subtitle1"
                             fontWeight={600} component="label" htmlFor='note' mb="5px" mt="25px">특이사항</Typography>
                 <CustomTextField id="note" variant="outlined" fullWidth />
-
-
 
                 </Stack>
             <Button color="primary" variant="contained" size="large" fullWidth component={Link} to="/auth/login"  disabled={!passwordsMatch} onClick={handleSubmit}>

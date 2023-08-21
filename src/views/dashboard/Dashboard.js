@@ -3,12 +3,12 @@ import {Grid, Box} from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 
 // components
-import Unity from './components/Unity';
+import Unity from './components/UnityContents/Unity';
 import YearlyGoal from './components/YearlyGoal';
 import Schedule from './components/schedule';
 import Contact from './components/Contact';
-/*import Blog from './components/Blog';*/
 import WeekendSchedule from './components/WeekendSchedule';
+import Kdas from "./components/Kdas";
 
 
 const Dashboard = () => {

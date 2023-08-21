@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
-import DashboardCard from '../../../components/shared/DashboardCard';
+import DashboardCard from '../../../../components/shared/DashboardCard';
 import './Unity.css';
 import {BrowserRouter as Router, Switch, Route, Link, Routes} from 'react-router-dom';
 import attention from './attention';
@@ -124,6 +124,11 @@ const Unity = () => {
                         <Link to="/button6">
                             <button className="image-button">
                                 <img src={require("./집중력2.png")} alt="Button 6" />
+                            </button>
+                        </Link>
+                        <Link to="/button7">
+                            <button className={`kdas-button`}>
+                                <img src={require("./설문.jpg")} alt="Button 7" />
                             </button>
                         </Link>
                     </div>
