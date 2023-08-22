@@ -5,7 +5,7 @@ body {
     background-color: #f4f4f4;
 }
 
-h5{
+h5 {
     font-size: xx-large;
     margin: 0;
 }
@@ -22,6 +22,7 @@ h5{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
+
 .custom-button {
     background-color: #007bff;
     color: #fff;
@@ -36,12 +37,14 @@ h5{
     background-color: #0056b3;
     transform: scale(1.05);
 }
+
 .custom-button-container {
     display: flex;
     justify-content: center;
     margin-top: 15px;
-    margin-bottom :100px;
+    margin-bottom: 100px;
 }
+
 .custom-card-title {
     border-bottom: 1px solid #dee2e6;
     padding: 0.5rem;
@@ -52,15 +55,16 @@ h5{
 .custom-card-title h5 {
     font-size: 1.25rem; /* h5 요소 폰트 크기 */
 }
+
 .custom-card-title h2 {
     font-size: 1rem; /* h5 요소 폰트 크기 */
 }
+
 .custom-card-title h3 {
     font-size: 1rem; /* h5 요소 폰트 크기 */
     text-align: right;
 }
+
 .custom-card-title p {
     font-size: 1rem; /* p 요소 폰트 크기 */
 }
-
-

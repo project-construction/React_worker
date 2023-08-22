@@ -31,18 +31,22 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
             });
 
             if (response.ok) {
-                const data = await response.json();
-                const token = data;
-                console.log(token);
-                localStorage.setItem('token', token);
-                localStorage.setItem('email', email);
-                localStorage.setItem('password', password);
-                navigate('/dashboard');
-                setIsLoggedIn(true);
+                response.json().then(data => {
+                    const token = data.accessToken;
+                    console.log(token);
+
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('email', email);
+                    localStorage.setItem('password', password);
+                    navigate('/dashboard');
+                    setIsLoggedIn(true);
+                }).catch(error => {
+                    console.error('JSON 파싱 오류:', error);
+                });
             } else {
-                // 로그인 실패 처리
                 console.error('로그인 실패');
             }
+
         } catch (error) {
             console.error('오류 발생:', error);
         }

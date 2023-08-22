@@ -35,13 +35,15 @@ const Routes = [
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },
       { path: '/ui/shadow', exact: true, element: <Shadow /> },
       { path: '*', element: <Navigate to="/auth/404" /> },
-      <PrivateRoute path="/button1" element={<Memory />} />,
-      <PrivateRoute path="/button2" element={<Memory2 />} />,
-      <PrivateRoute path="/button3" element={<Attention />} />,
-      <PrivateRoute path="/button4" element={<Attention2 />} />,
-      <PrivateRoute path="/button5" element={<Concentration />} />,
-      <PrivateRoute path="/button6" element={<Concentration2 />} />,
-      <PrivateRoute path="/button7" element={<Kdas />} />,
+
+      // Remove the PrivateRoute components
+      { path: '/button1', exact: true, element: <Memory /> },
+      { path: '/button2', exact: true, element: <Memory2 /> },
+      { path: '/button3', exact: true, element: <Attention /> },
+      { path: '/button4', exact: true, element: <Attention2 /> },
+      { path: '/button5', exact: true, element: <Concentration /> },
+      { path: '/button6', exact: true, element: <Concentration2 /> },
+      { path: '/button7', exact: true, element: <Kdas /> }
     ],
   },
   {
