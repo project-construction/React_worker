@@ -287,9 +287,8 @@ function Kdas() {
                                 >
                                     {questions.map((q, index) => (
                                         <SwiperSlide>
-                                            <hm><fieldset key={index}>
-                                                <legend></legend>
-                                                <p><b>{q.question}</b></p>
+                                            <fieldset key={index}>
+                                                <p><b><h3>{q.question}</h3></b></p>
                                                 {q.options.map((option, optionIndex) => (
                                                     <label key={optionIndex} htmlFor={`radio${index}-${optionIndex}`}>
                                                         <input
@@ -302,19 +301,19 @@ function Kdas() {
                                                         {option}
                                                     </label>
                                                 ))}
-                                            </fieldset></hm>
+                                            </fieldset>
                                         </SwiperSlide>
                                     ))}
-                                    <div className="custom-button-container">
-                                        <Button
-                                            className="custom-button"
-                                            onClick={handleSubmit}
-                                            disabled={submitted} // 이미 제출한 경우 버튼 비활성화
-                                        >
-                                            제출
-                                        </Button>
-                                    </div>
                                 </Swiper>
+                                <div className="custom-button-container">
+                                    <Button
+                                        className="custom-button"
+                                        onClick={handleSubmit}
+                                        disabled={submitted} // 이미 제출한 경우 버튼 비활성화
+                                    >
+                                        제출
+                                    </Button>
+                                </div>
                             </Form>
 
                             {submitted && (
