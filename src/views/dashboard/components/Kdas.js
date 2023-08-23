@@ -288,7 +288,7 @@ function Kdas() {
                                     {questions.map((q, index) => (
                                         <SwiperSlide>
                                             <fieldset key={index}>
-                                                <p><b><h3>{q.question}</h3></b></p>
+                                                <p><b><h1>{q.question}</h1></b></p>
                                                 {q.options.map((option, optionIndex) => (
                                                     <label key={optionIndex} htmlFor={`radio${index}-${optionIndex}`}>
                                                         <input
@@ -297,6 +297,7 @@ function Kdas() {
                                                             name={q.name}
                                                             value={option}
                                                             onChange={() => handleResponseChange(index, option)}
+                                                            style={{ width: "20px", height: "20px", marginRight: "8px" }}
                                                         />
                                                         {option}
                                                     </label>

@@ -5,10 +5,16 @@ body {
     background-color: #f4f4f4;
 }
 
+label{
+
+    font-size: xx-large;
+}
+
 hm {
     font-size: medium;
     text-align: center;
 }
+
 
 h5 {
     font-size: xx-large;
