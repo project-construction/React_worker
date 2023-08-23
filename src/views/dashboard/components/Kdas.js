@@ -287,7 +287,7 @@ function Kdas() {
                                 >
                                     {questions.map((q, index) => (
                                         <SwiperSlide>
-                                            <fieldset key={index}>
+                                            <hm><fieldset key={index}>
                                                 <legend></legend>
                                                 <p><b>{q.question}</b></p>
                                                 {q.options.map((option, optionIndex) => (
@@ -302,7 +302,7 @@ function Kdas() {
                                                         {option}
                                                     </label>
                                                 ))}
-                                            </fieldset>
+                                            </fieldset></hm>
                                         </SwiperSlide>
                                     ))}
                                     <div className="custom-button-container">

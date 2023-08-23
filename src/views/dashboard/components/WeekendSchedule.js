@@ -6,6 +6,7 @@ import { IconArrowDownRight, IconCurrencyDollar } from '@tabler/icons';
 import DashboardCard from '../../../components/shared/DashboardCard';
 
 const WeekendSchedule = () => {
+  /*
   // chart color
   const theme = useTheme();
   const secondary = theme.palette.secondary.main;
@@ -80,7 +81,7 @@ const WeekendSchedule = () => {
         </Stack>
       </>
     </DashboardCard>
-  );
+  );*/
 };
 
 export default WeekendSchedule;

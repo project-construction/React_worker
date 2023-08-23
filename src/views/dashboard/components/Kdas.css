@@ -5,6 +5,11 @@ body {
     background-color: #f4f4f4;
 }
 
+hm {
+    font-size: medium;
+    text-align: center;
+}
+
 h5 {
     font-size: xx-large;
     margin: 0;

@@ -39,11 +39,6 @@ const Unity = () => {
                                 <img src={require("./집중력2.png")} alt="Button 6" />
                             </button>
                         </Link>
-                        <Link to="/button7">
-                            <button className={`kdas-button`}>
-                                <img src={require("./설문.jpg")} alt="Button 7" />
-                            </button>
-                        </Link>
                     </div>
                 </DashboardCard>
             </div>
