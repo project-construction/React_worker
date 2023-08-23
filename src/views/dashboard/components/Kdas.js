@@ -32,7 +32,7 @@ const questions = [
         category: "anxiety"
     },
     {
-        question: "3. 어떤 것에도 긍정적인 감정을 느낄 수가 없었다..",
+        question: "3. 어떤 것에도 긍정적인 감정을 느낄 수가 없었다.",
         options: ["0", "1", "2", "3"],
         name: "question3",
         category: "depression"
