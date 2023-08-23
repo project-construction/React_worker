@@ -38,6 +38,7 @@ h5 {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+
 .custom-button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
@@ -49,6 +50,7 @@ h5 {
     margin-top: 15px;
     margin-bottom: 100px;
 }
+
 
 .custom-card-title {
     border-bottom: 1px solid #dee2e6;

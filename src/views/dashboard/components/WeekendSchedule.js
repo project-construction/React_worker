@@ -82,6 +82,15 @@ const WeekendSchedule = () => {
       </>
     </DashboardCard>
   );*/
+
+    return (
+        <DashboardCard
+            title="출석체크"
+
+        >
+        </DashboardCard>
+    );
+
 };
 
 export default WeekendSchedule;
