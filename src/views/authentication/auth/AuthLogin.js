@@ -21,7 +21,7 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('https://web-react-worker-lyc2mllonybvq.sel3.cloudtype.app/auth/login', {
+            const response = await fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
