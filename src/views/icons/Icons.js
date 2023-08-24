@@ -2,7 +2,7 @@ import React from 'react';
 import PageContainer from 'src/components/container/PageContainer';
 import DashboardCard from '../../components/shared/DashboardCard';
 import { useRef,useState } from "react";
-import './Icon.css';
+import './Icons.css';
 
 const Icons = () => {
 
@@ -28,7 +28,7 @@ const Icons = () => {
         })
     };
 
-  return (
+    return (
         <PageContainer title="출석" description="this is check">
             <DashboardCard title="출석">
                 <div className="attendance-form">

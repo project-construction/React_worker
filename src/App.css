@@ -1,0 +1,18 @@
+/* App.css */
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.browser-view {
+    background-color: lightgreen;
+    padding: 20px;
+}
+
+.mobile-view {
+    background-color: lightblue;
+    padding: 20px;
+}
