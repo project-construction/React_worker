@@ -5,6 +5,45 @@ body {
     background-color: #f4f4f4;
 }
 
+/* 스와이퍼 컨테이너에 대한 스타일 */
+.banner {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 브레이크포인트에 따른 스와이퍼 슬라이드 스타일 */
+/* 500px 이하 뷰포트 */
+@media all and (min-width:360px) and (max-width:767px){
+    .banner {
+        padding: 0 16px; /* 여백 추가 */
+    }
+
+    fieldset {
+        border: 1px solid #ccc;
+        padding: 16px;
+        margin-bottom: 16px;
+        align-items: center; /* 세로 중앙 정렬 */
+    }
+
+    p {
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    label {
+        display: inline-flex; /* 라디오 버튼 수평 정렬 */
+        align-items: center;
+        margin-right: 16px; /* 라디오 버튼 간격 조정 */
+    }
+
+    input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+    }
+}
+
 label{
     font-size: xx-large;
 }
@@ -41,6 +80,8 @@ h5 {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
+
 
 .custom-button2 {
     background-color: #04B404;

@@ -275,7 +275,6 @@ function Kdas() {
                             2 → 상당히 또는 자주 해당됨<br />
                             3 → 매우 많이 또는 거의 대부분 해당됨
                         </h3>
-
                         <CardBody>
                             <Form>
                                 <Swiper
@@ -284,6 +283,29 @@ function Kdas() {
                                     slidesPerView={1}
                                     navigation
                                     pagination={{ clickable: true }}
+                                    breakpoints={{
+                                        // when window width is >= 320px
+                                        320: {
+                                            slidesOffsetBefore: 0,
+                                            slidesPerView: 1,
+                                            spaceBetween: 8,
+                                            centeredSlides: false,
+                                        },
+                                        // when window width is >= 480px
+                                        480: {
+                                            slidesOffsetBefore: 0,
+                                            slidesPerView: 1,
+                                            spaceBetween: 8,
+                                            centeredSlides: false,
+                                        },
+                                        // when window width is >= 640px
+                                        640: {
+                                            slidesOffsetBefore: 0,
+                                            slidesPerView: 1,
+                                            spaceBetween: 8,
+                                            centeredSlides: false,
+                                        }
+                                        }}
                                 >
                                     {questions.map((q, index) => (
                                         <SwiperSlide>
