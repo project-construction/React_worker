@@ -23,6 +23,9 @@ const Profile = () => {
   const handleClose2 = () => {
     setAnchorEl2(null);
   };
+    const handleLogout = () => {
+        localStorage.removeItem('token'); // 토큰의 키를 이와 같이 수정해야 할 수 있습니다.
+    };
 
   return (
     <Box>
@@ -84,7 +87,14 @@ const Profile = () => {
           <ListItemText>My Tasks</ListItemText>
         </MenuItem>
         <Box mt={1} py={1} px={2}>
-          <Button to="/auth/login" variant="outlined" color="primary" component={Link} fullWidth>
+          <Button
+              to="/auth/login"
+              variant="outlined"
+              color="primary"
+              component={Link} 
+              fullWidth
+              onClick={handleLogout}
+          >
             Logout
           </Button>
         </Box>

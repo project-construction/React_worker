@@ -25,12 +25,6 @@ const Menuitems = [
     title: 'Typography',
     icon: IconTypography,
     href: '/ui/typography',
-  },
-  {
-    id: uniqueId(),
-    title: 'Shadow',
-    icon: IconCopy,
-    href: '/ui/shadow',
   },*/
   {
     navlabel: true,
