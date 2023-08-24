@@ -284,6 +284,20 @@ function Kdas() {
                                     slidesPerView={1}
                                     navigation
                                     pagination={{ clickable: true }}
+                                    breakpoints={{
+                                        0: {
+                                            slidesOffsetBefore: 0,
+                                            slidesPerView: 1,
+                                            spaceBetween: 8,
+                                            centeredSlides: false,
+                                        },
+                                        500: {
+                                            slidesOffsetBefore: 0,
+                                            slidesPerView: 1,
+                                            spaceBetween: 8,
+                                            centeredSlides: false,
+                                        }
+                                    }}
                                 >
                                     {questions.map((q, index) => (
                                         <SwiperSlide>
