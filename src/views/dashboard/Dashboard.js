@@ -2,13 +2,11 @@ import React from 'react';
 import {Grid, Box} from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 
-// components
-import Unity from './components/UnityContents/Unity';
 import YearlyGoal from './components/YearlyGoal';
 import Schedule from './components/schedule';
 import Contact from './components/Contact';
 import WeekendSchedule from './components/WeekendSchedule';
-import Kdas from "./components/Kdas";
+import UnityContents from "./components/UnityContents/UnityContents";
 
 
 const Dashboard = () => {
@@ -17,7 +15,7 @@ const Dashboard = () => {
             <Box>
                 <Grid container spacing={3}>
                     <Grid item xs={12} lg={8}>
-                        <Unity/>
+                        <UnityContents/>
                     </Grid>
                     <Grid item xs={12} lg={4}>
                         <Grid container spacing={3}>
@@ -35,9 +33,6 @@ const Dashboard = () => {
                     <Grid item xs={12} lg={8}>
                         <Contact/>
                     </Grid>
-{/*                    <Grid item xs={12}>
-                        {<Blog/>}
-                    </Grid>*/}
                 </Grid>
             </Box>
         </PageContainer>
