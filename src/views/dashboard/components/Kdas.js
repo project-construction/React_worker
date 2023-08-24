@@ -32,7 +32,7 @@ const questions = [
         category: "anxiety"
     },
     {
-        question: "3. 어떤 것에도 긍정적인 감정을 느낄 수가 없었다..",
+        question: "3. 어떤 것에도 긍정적인 감정을 느낄 수가 없었다.",
         options: ["0", "1", "2", "3"],
         name: "question3",
         category: "depression"
@@ -288,8 +288,7 @@ function Kdas() {
                                     {questions.map((q, index) => (
                                         <SwiperSlide>
                                             <fieldset key={index}>
-                                                <legend></legend>
-                                                <p><b>{q.question}</b></p>
+                                                <p><b><hm>{q.question}</hm></b></p>
                                                 {q.options.map((option, optionIndex) => (
                                                     <label key={optionIndex} htmlFor={`radio${index}-${optionIndex}`}>
                                                         <input
@@ -298,6 +297,7 @@ function Kdas() {
                                                             name={q.name}
                                                             value={option}
                                                             onChange={() => handleResponseChange(index, option)}
+                                                            style={{ width: "20px", height: "20px", marginRight: "8px" }}
                                                         />
                                                         {option}
                                                     </label>
@@ -305,16 +305,16 @@ function Kdas() {
                                             </fieldset>
                                         </SwiperSlide>
                                     ))}
-                                    <div className="custom-button-container">
-                                        <Button
-                                            className="custom-button"
-                                            onClick={handleSubmit}
-                                            disabled={submitted} // 이미 제출한 경우 버튼 비활성화
-                                        >
-                                            제출
-                                        </Button>
-                                    </div>
                                 </Swiper>
+                                <div className="custom-button-container">
+                                    <Button
+                                        className="custom-button"
+                                        onClick={handleSubmit}
+                                        disabled={submitted} // 이미 제출한 경우 버튼 비활성화
+                                    >
+                                        제출
+                                    </Button>
+                                </div>
                             </Form>
 
                             {submitted && (

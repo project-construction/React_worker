@@ -7,54 +7,60 @@ import { uniqueId } from 'lodash';
 const Menuitems = [
   {
     navlabel: true,
-    subheader: 'Home',
+    subheader: '메인',
   },
 
   {
     id: uniqueId(),
-    title: 'Dashboard',
+    title: '대시보드',
     icon: IconLayoutDashboard,
     href: '/dashboard',
   },
-/*  {
+  /*  {
+      navlabel: true,
+      subheader: 'Utilities',
+    },
+    {
+      id: uniqueId(),
+      title: 'Typography',
+      icon: IconTypography,
+      href: '/ui/typography',
+    },
+    {
+      id: uniqueId(),
+      title: 'Shadow',
+      icon: IconCopy,
+      href: '/ui/shadow',
+    },*/
+  {
     navlabel: true,
-    subheader: 'Utilities',
+    subheader: '사용자',
   },
   {
     id: uniqueId(),
-    title: 'Typography',
-    icon: IconTypography,
-    href: '/ui/typography',
-  },*/
-  {
-    navlabel: true,
-    subheader: 'Auth',
-  },
-  {
-    id: uniqueId(),
-    title: 'Login',
+    title: '로그인',
     icon: IconLogin,
     href: '/auth/login',
   },
   {
     id: uniqueId(),
-    title: 'Register',
+    title: '회원가입',
     icon: IconUserPlus,
     href: '/auth/register',
   },
   {
     navlabel: true,
-    subheader: 'Extra',
+    subheader: '기타',
   },
   {
     id: uniqueId(),
-    title: 'Icons',
+    title: '출석',
     icon: IconMoodHappy,
     href: '/icons',
   },
   {
     id: uniqueId(),
-    title: 'Sample Page',
+    title: '예비',
     icon: IconAperture,
     href: '/sample-page',
   },
