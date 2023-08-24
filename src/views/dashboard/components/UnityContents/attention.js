@@ -11,33 +11,33 @@ function Attention() {
 
     const [endTime, setEndTime] = useState(null);
     const handleReceive = async (endTime) => {
-        try {
-            const jwtToken = localStorage.getItem('token');
-            const response = await fetch('https://port-0-spring-eu1k2llleqefn5.sel3.cloudtype.app/insertContent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${jwtToken}`
-                },
-                body: JSON.stringify({ endTime }),
-                mode: 'cors'
+        const jwtToken = localStorage.getItem('token');
+        console.log(JSON.stringify({hammering:endTime}));
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${jwtToken}`
+            },
+            body: JSON.stringify({hammering:endTime}),
+            mode: 'cors'
+        };
+
+        fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/insertContent', requestOptions)
+            .then(response => response)
+            .then(data => {
+                console.log('Category scores submitted:', data);
+            })
+            .catch(error => {
+                console.error('Error submitting category scores:', error);
             });
-            if(response.ok){
-                console.log("token : "+jwtToken+"data"+endTime);
-            }
-            else{
-                console.log("error");
-            }
-        } catch (error) {
-            console.error('오류 발생:', error);
-        }
     };
 
     useEffect(function (){
         unityContext.on("SendEndTime",function (endTime){
             setEndTime(endTime);
             localStorage.setItem("endTime2",endTime);
-            handleReceive();
+            handleReceive(endTime);
         });
     },[endTime]);
     return (

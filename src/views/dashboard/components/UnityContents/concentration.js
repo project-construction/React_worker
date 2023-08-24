@@ -17,7 +17,7 @@ function Concentration() { // 대문자로 변경
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${jwtToken}`
+                    Authorization: `Bearer ${jwtToken}`
                 },
                 body: JSON.stringify({ endTime }),
                 mode: 'cors'
