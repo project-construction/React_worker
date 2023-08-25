@@ -285,18 +285,21 @@ function Kdas() {
                                     navigation
                                     pagination={{ clickable: true }}
                                     breakpoints={{
+                                        // when window width is >= 320px
                                         320: {
                                             slidesOffsetBefore: 0,
                                             slidesPerView: 1,
                                             spaceBetween: 8,
                                             centeredSlides: false,
                                         },
+                                        // when window width is >= 480px
                                         480: {
                                             slidesOffsetBefore: 0,
                                             slidesPerView: 1,
                                             spaceBetween: 8,
                                             centeredSlides: false,
                                         },
+                                        // when window width is >= 640px
                                         640: {
                                             slidesOffsetBefore: 0,
                                             slidesPerView: 1,
