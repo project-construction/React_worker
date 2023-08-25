@@ -13,7 +13,6 @@ body {
 }
 
 
-
 /* Responsive styles for screens up to 500px */
 @media (max-width: 500px) {
     .custom-card-title {
@@ -42,6 +41,7 @@ body {
         align-items: center;
         margin-right: 16px; /* 라디오 버튼 간격 조정 */
     }
+
     .custom-button {
         font-size: 18px; /* Adjust the font size as needed */
         padding: 8px 8px; /* Adjust the padding as needed */

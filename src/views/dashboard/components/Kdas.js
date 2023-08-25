@@ -306,7 +306,7 @@ function Kdas() {
                                             spaceBetween: 8,
                                             centeredSlides: false,
                                         }
-                                    }}
+                                        }}
                                 >
                                     {questions.map((q, index) => (
                                         <SwiperSlide>
