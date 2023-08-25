@@ -232,8 +232,11 @@ function Kdas() {
             });
     };
 
+    const isQuestionsAnswer = responses.length === questions.length;
+    const ResponsesValid = !responses.includes(undefined);
+
     const handleSubmit = () => {
-        if (responses.length !== questions.length || responses.includes(undefined)) {
+        if (!isQuestionsAnswer || !ResponsesValid) {
             alert("응답하지 않은 항목이 있습니다.");
         } else {
             alert("설문 제출이 완료되었습니다. 감사합니다.");
@@ -327,18 +330,22 @@ function Kdas() {
                                             </fieldset>
                                         </SwiperSlide>
                                     ))}
+                                    <SwiperSlide>
+                                        <div className="custom-button-container">
+                                            <div>
+                                                <Button
+                                                    className="custom-button"
+                                                    onClick={handleSubmit}
+                                                    disabled={submitted} // 이미 제출한 경우 버튼 비활성화
+                                                    style={{ display: 'block', marginTop: '80px'}} // 가운데 정렬 스타일 추가
+                                                >
+                                                    제출
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
                                 </Swiper>
-                                <div className="custom-button-container">
-                                    <Button
-                                        className="custom-button"
-                                        onClick={handleSubmit}
-                                        disabled={submitted} // 이미 제출한 경우 버튼 비활성화
-                                    >
-                                        제출
-                                    </Button>
-                                </div>
                             </Form>
-
                             {submitted && (
                                 <div>
                                     <h4>항목별 점수</h4>
