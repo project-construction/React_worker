@@ -12,12 +12,6 @@ body {
     position: relative;
 }
 
-/* 스와이퍼 컨테이너에 대한 스타일 */
-.banner {
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-}
 
 /* Responsive styles for screens up to 500px */
 @media (max-width: 500px) {
