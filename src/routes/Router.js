@@ -16,12 +16,12 @@ const Shadow = Loadable(lazy(() => import('../views/utilities/Shadow')))
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Register = Loadable(lazy(() => import('../views/authentication/Register')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
-const Memory = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/memory')));
-const Memory2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/memory2')));
-const Attention = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/attention')));
-const Attention2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/attention2')));
-const Concentration = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/concentration')));
-const Concentration2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/concentration2')));
+const Memory = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/DoorLock')));
+const Memory2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Nback')));
+const Attention = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Hammering')));
+const Attention2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Simon')));
+const Concentration = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/TrafficLight')));
+const Concentration2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Puzzle')));
 const Kdas = Loadable(lazy(() => import('../views/dashboard/components/Kdas')));
 const Routes = [
   {
