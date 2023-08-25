@@ -11,19 +11,16 @@ body {
     margin: 0 auto;
     position: relative;
 }
-
-/* 브레이크포인트에 따른 스와이퍼 슬라이드 스타일 */
-/* 500px 이하 뷰포트 */
+/* Responsive styles for screens up to 500px */
 @media (max-width: 500px) {
-    .banner {
-        padding: 0 16px; /* 여백 추가 */
+    .custom-card-title {
+        font-size: 24px; /* Adjust the font size as needed */
     }
 
     fieldset {
-        border: 1px solid #ccc;
-        padding: 16px;
-        margin-bottom: 16px;
-        align-items: center; /* 세로 중앙 정렬 */
+        margin: 0;
+        padding: 0;
+        border: none;
     }
 
     p {
@@ -36,12 +33,11 @@ body {
         align-items: center;
         margin-right: 16px; /* 라디오 버튼 간격 조정 */
     }
-
-    input[type="radio"] {
-        width: 20px;
-        height: 20px;
-        margin-right: 8px;
+    .custom-button {
+        font-size: 18px; /* Adjust the font size as needed */
+        padding: 8px 8px; /* Adjust the padding as needed */
     }
+
 }
 
 label{
