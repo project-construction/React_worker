@@ -3,10 +3,10 @@ import Unity, {UnityContext} from "react-unity-webgl";
 
 function Hammering() {
     const unityContext = new UnityContext({
-        loaderUrl: "build/TEST_Hammering.loader.js",
-        dataUrl: "build/TEST_Hammering.data.unityweb",
-        frameworkUrl: "build/TEST_Hammering.framework.js.unityweb",
-        codeUrl: "build/TEST_Hammering.wasm.unityweb",
+        loaderUrl: "build/Hammering.loader.js",
+        dataUrl: "build/Hammering.data.unityweb",
+        frameworkUrl: "build/Hammering.framework.js.unityweb",
+        codeUrl: "build/Hammering.wasm.unityweb",
 
     });
 
