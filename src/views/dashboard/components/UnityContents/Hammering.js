@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Unity, {UnityContext} from "react-unity-webgl";
+import {useUnityLoader} from "react-unity-webgl/distribution/hooks/use-unity-loader";
 
 function Hammering() {
     const unityContext = new UnityContext({
@@ -11,7 +12,6 @@ function Hammering() {
     });
 
     const [endTime, setEndTime] = useState(null);
-    const [isEnd,setIsEnd] = useState(false);
     const handleReceive = async (endTime) => {
         const jwtToken = localStorage.getItem('token');
         console.log(JSON.stringify({hammering:endTime}));
@@ -42,19 +42,18 @@ function Hammering() {
             handleReceive(endTime);
         });
     },[endTime]);
-    useEffect(function (){
-        unityContext.on("ReturnMainMenu_toreact",function (isEnd){
-            setIsEnd(true);
-        });
-    },[endTime]);
+    const handleFullscreen = () => {
+        if (unityContext) {
+            unityContext.setFullscreen(true); // Unity 콘텐츠를 fullscreen으로 전환
+        }
+    };
     return (
-        <div className="App">
-            <header className="App-header">
+        <div className="webgl-content">
+            <header className="unityContainer">
                 <Unity
                     style={{
                         width: '100%',
                         height: '100%',
-                        margin: 'auto',
                     }}
                     unityContext={unityContext}
                 />
@@ -65,6 +64,7 @@ function Hammering() {
             ) : (
                 <p>Game end time not received yet.</p>
             )}
+            <button onClick = {handleFullscreen}>fullscreen</button>
         </div>
     );
 }
