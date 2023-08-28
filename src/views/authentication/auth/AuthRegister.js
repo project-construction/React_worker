@@ -93,16 +93,19 @@ const AuthRegister = ({title, subtitle, subtext}) => {
             })
                 .then(response => response.json())
                 .then(data => {
+                    alert("회원 가입 성공");
                     console.log('회원 가입 성공', data);
                     // 회원 가입 성공 시 필요한 처리 수행
                 })
                 .catch(error => {
+                    alert("회원 가입 실패");
                     console.error('회원 가입 실패', error);
                     // 회원 가입 실패 시 필요한 처리 수행
                 });
         } else {
-            // 비밀번호가 일치하지 않을 때의 처리
+            alert("비밀번호가 일치하지 않습니다.");
             console.log('비밀번호가 일치하지 않습니다.');
+            // 비밀번호가 일치하지 않을 때의 처리
         }
     };
 
