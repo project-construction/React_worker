@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '@mui/material/styles';
 
 import {
   Button,
@@ -11,8 +10,6 @@ import {Link} from "react-router-dom";
 
 const YearlyGoal = () => {
   // chart color
-  const theme = useTheme();
-  const primary = theme.palette.primary.main;
 
 
   return (

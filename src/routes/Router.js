@@ -23,6 +23,7 @@ const Attention2 = Loadable(lazy(() => import('../views/dashboard/components/Uni
 const Concentration = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/TrafficLight')));
 const Concentration2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Puzzle')));
 const Kdas = Loadable(lazy(() => import('../views/dashboard/components/Kdas')));
+const Signature = Loadable(lazy(()=>import('../views/dashboard/components/Signature')));
 const Routes = [
   {
     path: '/',
@@ -35,7 +36,6 @@ const Routes = [
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },
       { path: '/ui/shadow', exact: true, element: <Shadow /> },
       { path: '*', element: <Navigate to="/auth/404" /> },
-
       // Remove the PrivateRoute components
       { path: '/button1', exact: true, element: <Memory /> },
       { path: '/button2', exact: true, element: <Memory2 /> },
@@ -43,7 +43,8 @@ const Routes = [
       { path: '/button4', exact: true, element: <Attention2 /> },
       { path: '/button5', exact: true, element: <Concentration /> },
       { path: '/button6', exact: true, element: <Concentration2 /> },
-      { path: '/button7', exact: true, element: <Kdas /> }
+      { path: '/button7', exact: true, element: <Kdas /> },
+      {path: '/signature',exact:true,element: <Signature/>}
     ],
   },
   {

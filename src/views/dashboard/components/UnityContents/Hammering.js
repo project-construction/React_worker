@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import Unity, {UnityContext} from "react-unity-webgl";
-import {useUnityLoader} from "react-unity-webgl/distribution/hooks/use-unity-loader";
 
 function Hammering() {
     const unityContext = new UnityContext({
@@ -44,7 +43,7 @@ function Hammering() {
     },[endTime]);
     const handleFullscreen = () => {
         if (unityContext) {
-            unityContext.setFullscreen(true); // Unity 콘텐츠를 fullscreen으로 전환
+            unityContext.setFullscreen(true);
         }
     };
     return (
