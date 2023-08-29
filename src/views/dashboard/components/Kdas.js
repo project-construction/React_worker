@@ -42,7 +42,7 @@ const questions = [
             "(심하게 호흡이 가쁘거나 가만히 있을 때도 호흡 곤란이 있었다).",
         options: ["0", "1", "2", "3"],
         name: "question4",
-        category: "stress"
+        category: "anxiety"
     },
     {
         question: "5. 무엇인가를 시작하는 것이 어려웠다.",
@@ -84,13 +84,13 @@ const questions = [
         question: "11. 자꾸 초조해졌다.",
         options: ["0", "1", "2", "3"],
         name: "question11",
-        category: "anxiety"
+        category: "stress"
     },
     {
         question: "12. 나는 진정하는 것이 어려웠다.",
         options: ["0", "1", "2", "3"],
         name: "question12",
-        category: "anxiety"
+        category: "stress"
     },
     {
         question: "13. 기운이 처지고 우울했다.",
@@ -114,13 +114,12 @@ const questions = [
         question: "16. 어떤 것에도 몰두 할 수가 없었다",
         options: ["0", "1", "2", "3"],
         name: "question16",
-        category: "anxiety"
+        category: "depression"
     },
     {
         question: "17. 나는 사람으로서 가치가 없다고 느꼈다.",
         options: ["0", "1", "2", "3"],
-        name: "question17",
-        category: "anxiety"
+        category: "depression"
     },
     {
         question: "18. 내가 꽤 신경질적이라고 느꼈다.",
@@ -169,7 +168,7 @@ function Kdas() {
                 updatedCategoryScores[category] = 0;
             }
 
-            updatedCategoryScores[category] += responseValue;
+            updatedCategoryScores[category] += responseValue*2;
         });
 
         Object.keys(updatedCategoryScores).forEach(category => {
