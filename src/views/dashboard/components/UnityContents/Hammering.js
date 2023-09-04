@@ -57,11 +57,11 @@ function Hammering() {
                     unityContext={unityContext}
                 />
             </header>
-            <h1>Unity Game End Time</h1>
+            <h1>Hammering</h1>
             {endTime ? (
-                <p>Game ended at: {endTime.toString()}</p>
+                <p>게임 클리어 시간N: {endTime.toString()}</p>
             ) : (
-                <p>Game end time not received yet.</p>
+                <p>콘텐츠를 플레이해 주세요.</p>
             )}
             <button onClick = {handleFullscreen}>fullscreen</button>
         </div>

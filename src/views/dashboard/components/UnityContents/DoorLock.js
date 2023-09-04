@@ -42,7 +42,11 @@ function DoorLock() {
             handleReceive(endTime); // endTime을 인자로 전달
         });
     }, [clearRound]);
-
+    const handleFullscreen = () => {
+        if (unityContext) {
+            unityContext.setFullscreen(true);
+        }
+    };
     return (
         <div className="App">
             <header className="App-header">
@@ -61,6 +65,7 @@ function DoorLock() {
             ) : (
                 <p>Game end time not received yet.</p>
             )}
+            <button onClick = {handleFullscreen}>fullscreen</button>
         </div>
     );
 }

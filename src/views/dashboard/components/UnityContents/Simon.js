@@ -39,6 +39,11 @@ function Puzzle() {
             handleReceive(passedRoundNum);
         });
     },[passedRoundNum]);
+    const handleFullscreen = () => {
+        if (unityContext) {
+            unityContext.setFullscreen(true);
+        }
+    };
     return (
         <div className="App">
             <header className="App-header">
@@ -57,6 +62,7 @@ function Puzzle() {
             ) : (
                 <p>콘텐츠를 플레이 해주세요</p>
             )}
+            <button onClick = {handleFullscreen}>fullscreen</button>
         </div>
     );
 }

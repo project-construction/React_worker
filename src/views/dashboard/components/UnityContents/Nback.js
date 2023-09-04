@@ -39,6 +39,11 @@ function Nback() {
             handleReceive();
         });
     },[rightRatio]);
+    const handleFullscreen = () => {
+        if (unityContext) {
+            unityContext.setFullscreen(true);
+        }
+    };
     return (
         <div className="App">
             <header className="App-header">
@@ -57,6 +62,7 @@ function Nback() {
             ) : (
                 <p>Game end time not received yet.</p>
             )}
+            <button onClick = {handleFullscreen}>fullscreen</button>
         </div>
     );
 }

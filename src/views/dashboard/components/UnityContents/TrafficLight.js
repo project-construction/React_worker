@@ -39,6 +39,11 @@ function TrafficLight() { // 대문자로 변경
             handleReceive(averageTime);
         });
     },[averageTime]);
+    const handleFullscreen = () => {
+        if (unityContext) {
+            unityContext.setFullscreen(true);
+        }
+    };
     return (
         <div className="App">
             <header className="App-header">
@@ -57,6 +62,7 @@ function TrafficLight() { // 대문자로 변경
             ) : (
                 <p>콘텐츠를 플레이 해주세요</p>
             )}
+            <button onClick = {handleFullscreen}>fullscreen</button>
         </div>
     );
 }
