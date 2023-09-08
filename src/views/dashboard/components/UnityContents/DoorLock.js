@@ -38,7 +38,7 @@ function DoorLock() {
     useEffect(() => {
         unityContext.on("SendPassedRoundNum", (endTime) => {
             setClearRound(endTime);
-            localStorage.setItem("clearRound", endTime);
+            localStorage.setItem("doorLock", endTime);
             handleReceive(endTime); // endTime을 인자로 전달
         });
     }, [clearRound]);
