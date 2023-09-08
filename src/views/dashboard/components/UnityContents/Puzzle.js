@@ -36,7 +36,7 @@ function Puzzle() {
         unityContext.on("SendEndTime",function (endTime){
             setEndTime(endTime);
             localStorage.setItem("endTime1",endTime);
-            handleReceive();
+            handleReceive(endTime);
         });
     },[endTime]);
     const handleFullscreen = () => {
