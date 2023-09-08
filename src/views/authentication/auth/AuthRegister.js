@@ -81,7 +81,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({role:selectedRole,userid:id,team:team,name:name,birth:birthday,gender:selectedGender,email:email,phone:phoneNumber, password:password,address:address}),
+                    body: JSON.stringify({role:"USER",userid:id,team:team,name:name,birth:birthday,gender:selectedGender,email:email,phone:phoneNumber, password:password,address:address}),
                     mode: 'cors'
                 });
 
@@ -196,32 +196,6 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                         이메일
                     </Typography>
                     <CustomTextField id="email" variant="outlined" fullWidth value={email} onChange={handleEmailChange} />
-
-                    <Typography variant="subtitle1" fontWeight={600} component="label" htmlFor="role" mb="5px" mt="25px">
-                        직무
-                    </Typography>
-                    <div style={{ display: 'flex', gap: '10px' }}>
-                        <label>
-                            <input
-                                type="checkbox"
-                                value="admin"
-                                checked={selectedRole === 'admin'}
-                                onChange={handleRoleChange}
-                            />
-                            관리자
-                        </label>
-                        <span style={{ margin: '0 50px' }}></span>
-                        <label>
-                            <input
-                                type="checkbox"
-                                value="worker"
-                                checked={selectedRole === 'worker'}
-                                onChange={handleRoleChange}
-                            />
-                            근로자
-                        </label>
-                    </div>
-
                     <Typography variant="subtitle1" fontWeight={600} component="label" htmlFor="phone_number" mb="5px" mt="25px">
                         휴대전화
                     </Typography>
