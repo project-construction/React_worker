@@ -25,13 +25,8 @@ const Menuitems = [
       title: 'Typography',
       icon: IconTypography,
       href: '/ui/typography',
-    },
-    {
-      id: uniqueId(),
-      title: 'Shadow',
-      icon: IconCopy,
-      href: '/ui/shadow',
     },*/
+
   {
     navlabel: true,
     subheader: '사용자',
@@ -41,6 +36,12 @@ const Menuitems = [
     title: '로그인',
     icon: IconLogin,
     href: '/auth/login',
+  },
+  {
+    id: uniqueId(),
+    title: '로그아웃',
+    icon: IconLogin,
+    href: '/dashboard',
   },
   {
     id: uniqueId(),

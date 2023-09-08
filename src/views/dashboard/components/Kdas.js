@@ -189,7 +189,6 @@ function Kdas() {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwtToken}`
             },
-            // No need to include body in a GET request
             mode: 'cors'
         };
 
