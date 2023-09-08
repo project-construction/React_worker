@@ -12,14 +12,14 @@ function Nback() {
     const [rightRatio, setRightRatio] = useState(null);
     const handleReceive = async (endTime) => {
         try {
-            const jwtToken = localStorage.getItem('token');
-            const response = await fetch('https://port-0-spring-eu1k2llleqefn5.sel3.cloudtype.app/insertContent', {
+            const jwtToken = localStorage.getItem('accessToken');
+            const response = await fetch('https://port-0-spring-eu1k2llleqefn5.sel3.cloudtype.app/unityContent/insertContent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${jwtToken}`
                 },
-                body: JSON.stringify({ endTime }),
+                body: JSON.stringify({ nBack: endTime }),
                 mode: 'cors'
             });
             if(response.ok){

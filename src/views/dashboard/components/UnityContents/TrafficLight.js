@@ -12,8 +12,8 @@ function TrafficLight() { // 대문자로 변경
     const [averageTime, setAverageTime] = useState(null);
     const handleReceive = async (averageTime) => {
         try {
-            const jwtToken = localStorage.getItem('token');
-            const response = await fetch('https://port-0-spring-eu1k2llleqefn5.sel3.cloudtype.app/insertContent', {
+            const jwtToken = localStorage.getItem('accessToken');
+            const response = await fetch('https://port-0-spring-eu1k2llleqefn5.sel3.cloudtype.app/unityContent/insertContent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -12,8 +12,8 @@ function Puzzle() {
     const [endTime, setEndTime] = useState(null);
     const handleReceive = async (endTime) => {
         try {
-            const jwtToken = localStorage.getItem('token');
-            const response = await fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/unityContent', {
+            const jwtToken = localStorage.getItem('accessToken');
+            const response = await fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/unityContent/insertContent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

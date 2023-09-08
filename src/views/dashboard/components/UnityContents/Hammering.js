@@ -12,7 +12,7 @@ function Hammering() {
 
     const [endTime, setEndTime] = useState(null);
     const handleReceive = async (endTime) => {
-        const jwtToken = localStorage.getItem('token');
+        const jwtToken = localStorage.getItem('accessToken');
         console.log(JSON.stringify({hammering:endTime}));
         const requestOptions = {
             method: 'POST',

@@ -15,13 +15,13 @@ function DoorLock() {
     const handleReceive = async (endTime) => {
         try {
             const jwtToken = localStorage.getItem('token');
-            const response = await fetch('https://port-0-spring-eu1k2llleqefn5.sel3.cloudtype.app/insertContent', {
+            const response = await fetch('https://port-0-spring-eu1k2llleqefn5.sel3.cloudtype.app/unityContent/insertContent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${jwtToken}`
                 },
-                body: JSON.stringify({ doorlock: endTime }),
+                body: JSON.stringify({ doorLock: endTime }),
                 mode: 'cors'
             });
 
