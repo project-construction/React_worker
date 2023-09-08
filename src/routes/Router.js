@@ -41,7 +41,7 @@ const Routes = [
       { path: '/hammering', exact: true, element: <Hammering /> },
       { path: '/puzzle', exact: true, element: <Puzzle /> },
       { path: '/simon', exact: true, element: <Simon/> },
-      { path: '/traffic', exact: true, element: <TrafficLight /> },
+      { path: '/trafficlight', exact: true, element: <TrafficLight /> },
       { path: '/survey', exact: true, element: <Kdas /> },
       {path: '/signature',exact:true,element: <Signature/>}
     ],
