@@ -19,11 +19,11 @@ function Nback() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${jwtToken}`
                 },
-                body: JSON.stringify({ nBack: endTime }),
+                body: JSON.stringify({ nBack: rightRatio }),
                 mode: 'cors'
             });
             if(response.ok){
-                console.log("token : "+jwtToken+"data"+endTime);
+                console.log("token : "+jwtToken+"data"+rightRatio);
             }
             else{
                 console.log("error");

@@ -19,7 +19,7 @@ function TrafficLight() { // 대문자로 변경
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${jwtToken}`
                 },
-                body: JSON.stringify({ traffic_light:averageTime }),
+                body: JSON.stringify({ trafficLight:averageTime }),
                 mode: 'cors'
             });
             if(response.ok){

@@ -14,7 +14,7 @@ function DoorLock() {
 
     const handleReceive = async (endTime) => {
         try {
-            const jwtToken = localStorage.getItem('token');
+            const jwtToken = localStorage.getItem('accessToken');
             const response = await fetch('https://port-0-spring-eu1k2llleqefn5.sel3.cloudtype.app/unityContent/insertContent', {
                 method: 'POST',
                 headers: {
@@ -36,10 +36,10 @@ function DoorLock() {
     };
 
     useEffect(() => {
-        unityContext.on("SendPassedRoundNum", (endTime) => {
-            setClearRound(endTime);
-            localStorage.setItem("doorLock", endTime);
-            handleReceive(endTime); // endTime을 인자로 전달
+        unityContext.on("SendPassedRoundNum", (doorLock) => {
+            setClearRound(doorLock);
+            localStorage.setItem("doorLock", doorLock);
+            handleReceive(doorLock); // endTime을 인자로 전달
         });
     }, [clearRound]);
     const handleFullscreen = () => {

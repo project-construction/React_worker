@@ -19,7 +19,7 @@ function Puzzle() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${jwtToken}`
                 },
-                body: JSON.stringify({ endTime }),
+                body: JSON.stringify({ numberPuzzle:endTime }),
                 mode: 'cors'
             });
             if(response.ok){
