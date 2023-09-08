@@ -209,13 +209,13 @@ function Kdas() {
     };
 
     const sendCategoryScoresToServer = () => {
-        const jwtToken = localStorage.getItem('token');
+        const jwtToken = localStorage.getItem('accessToken');
         console.log(JSON.stringify(categoryScores));
         const requestOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${jwtToken}`
+                'Authorization': `Bearer ${jwtToken}`,
             },
             body: JSON.stringify(categoryScores),
             mode: 'cors'
