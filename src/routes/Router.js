@@ -24,6 +24,7 @@ const TrafficLight = Loadable(lazy(() => import('../views/dashboard/components/U
 const Puzzle = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Puzzle')));
 const Kdas = Loadable(lazy(() => import('../views/dashboard/components/Kdas')));
 const Signature = Loadable(lazy(()=>import('../views/dashboard/components/Signature')));
+const Logout = Loadable(lazy(()=>import('../views/dashboard/logout')));
 const Routes = [
   {
     path: '/',
@@ -43,7 +44,8 @@ const Routes = [
       { path: '/simon', exact: true, element: <Simon/> },
       { path: '/trafficlight', exact: true, element: <TrafficLight /> },
       { path: '/survey', exact: true, element: <Kdas /> },
-      {path: '/signature',exact:true,element: <Signature/>}
+      {path: '/signature',exact:true,element: <Signature/>},
+      {path: '/logout',exact:true,element: <Logout/>},
     ],
   },
   {
