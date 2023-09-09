@@ -24,6 +24,11 @@ const TrafficLight = Loadable(lazy(() => import('../views/dashboard/components/U
 const Puzzle = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Puzzle')));
 const Kdas = Loadable(lazy(() => import('../views/dashboard/components/Kdas')));
 const Signature = Loadable(lazy(()=>import('../views/dashboard/components/Signature')));
+
+const Alert = Loadable(lazy(()=>import('../views/Notice/Alerts')));
+const Notice = Loadable(lazy(()=>import('../views/Notice/Notice')));
+
+
 const Routes = [
   {
     path: '/',
@@ -44,7 +49,11 @@ const Routes = [
       { path: '/simon', exact: true, element: <Simon/> },
       { path: '/traffic', exact: true, element: <TrafficLight /> },
       { path: '/survey', exact: true, element: <Kdas /> },
-      {path: '/signature',exact:true,element: <Signature/>}
+      { path: '/signature',exact:true,element: <Signature/>},
+
+      { path: '/alert',exact:true,element: <Alert/>},
+      { path: '/notice/:index',exact:true,element: <Notice/>},
+
     ],
   },
   {
