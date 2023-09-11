@@ -23,7 +23,7 @@ const Simon = Loadable(lazy(() => import('../views/dashboard/components/UnityCon
 const TrafficLight = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/TrafficLight')));
 const Puzzle = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Puzzle')));
 const Kdas = Loadable(lazy(() => import('../views/dashboard/components/Kdas')));
-const Signature = Loadable(lazy(()=>import('../views/dashboard/components/Signature')));
+const Signature = Loadable(lazy(()=>import('../views/dashboard/components/SignComponents/Signature')));
 const Logout = Loadable(lazy(()=>import('../views/dashboard/logout')));
 const Routes = [
   {
