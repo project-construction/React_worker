@@ -19,7 +19,7 @@ const Unity = () => {
     };
     return (
         <div>
-            <DashboardCard title="Unity Contents">
+            <DashboardCard title="인지능력 검사 콘텐츠">
                 <div
                     style={{
                         display: 'grid',
