@@ -6,7 +6,7 @@ import {
 
 import DashboardCard from '../../../components/shared/DashboardCard';
 import {Link} from "react-router-dom";
-
+import './K-DassBlock.css';
 
 const YearlyGoal = () => {
   // chart color

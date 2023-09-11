@@ -2,10 +2,10 @@ import React from 'react';
 import {Grid, Box} from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 
-import YearlyGoal from './components/YearlyGoal';
+import YearlyGoal from './components/K-DassBlock';
 import Schedule from './components/schedule';
 import Contact from './components/Contact';
-import WeekendSchedule from './components/WeekendSchedule';
+import Attendance from './components/Attendance';
 import UnityContents from "./components/UnityContents/UnityContents";
 
 
@@ -23,7 +23,7 @@ const Dashboard = () => {
                                 <YearlyGoal/>
                             </Grid>
                             <Grid item xs={12}>
-                                <WeekendSchedule/>
+                                <Attendance/>
                             </Grid>
                         </Grid>
                     </Grid>
