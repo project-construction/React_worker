@@ -188,7 +188,6 @@ function Kdas() {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwtToken}`
             },
-            // No need to include body in a GET request
             mode: 'cors'
         };
 
@@ -209,13 +208,13 @@ function Kdas() {
     };
 
     const sendCategoryScoresToServer = () => {
-        const jwtToken = localStorage.getItem('token');
+        const jwtToken = localStorage.getItem('accessToken');
         console.log(JSON.stringify(categoryScores));
         const requestOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${jwtToken}`
+                'Authorization': `Bearer ${jwtToken}`,
             },
             body: JSON.stringify(categoryScores),
             mode: 'cors'
@@ -283,6 +282,29 @@ function Kdas() {
                                     slidesPerView={1}
                                     navigation
                                     pagination={{ clickable: true }}
+                                    breakpoints={{
+                                        // when window width is >= 320px
+                                        320: {
+                                            slidesOffsetBefore: 0,
+                                            slidesPerView: 1,
+                                            spaceBetween: 8,
+                                            centeredSlides: false,
+                                        },
+                                        // when window width is >= 480px
+                                        480: {
+                                            slidesOffsetBefore: 0,
+                                            slidesPerView: 1,
+                                            spaceBetween: 8,
+                                            centeredSlides: false,
+                                        },
+                                        // when window width is >= 640px
+                                        640: {
+                                            slidesOffsetBefore: 0,
+                                            slidesPerView: 1,
+                                            spaceBetween: 8,
+                                            centeredSlides: false,
+                                        }
+                                        }}
                                 >
                                     {questions.map((q, index) => (
                                         <SwiperSlide>

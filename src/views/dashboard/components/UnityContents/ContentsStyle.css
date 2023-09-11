@@ -1,0 +1,31 @@
+/* CSS 코드 */
+.webgl-content {
+    /* 다른 스타일링 속성들 */
+    position: relative; /* 부모 요소의 위치 지정 */
+}
+
+table {
+    border-collapse: collapse; /* 테이블 셀 간의 간격 제거 */
+    width: 100%; /* 테이블 폭 100% 설정 */
+}
+
+tr {
+    height: 10px; /* 행 높이 설정 */
+}
+
+td {
+    padding: 0; /* 셀 내부 여백 제거 */
+}
+.fullscreen-button {
+    position: absolute;
+    bottom: 6px; /* 바닥에서 10px 떨어진 위치에 배치 */
+    right: 2px; /* 오른쪽에서 10px 떨어진 위치에 배치 */
+}
+button {
+    /* 버튼 스타일링 */
+    background-color: #000000; /* 배경 색상 */
+    color: #fff; /* 텍스트 색상 */
+    padding: 5px 10px; /* 내부 여백 설정 */
+    border: none; /* 테두리 제거 */
+    cursor: pointer; /* 커서 스타일 변경 */
+}

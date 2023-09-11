@@ -35,7 +35,7 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
                     const token = data.accessToken;
                     console.log(token);
 
-                    localStorage.setItem('token', token);
+                    localStorage.setItem('accessToken', token);
                     localStorage.setItem('email', email);
                     localStorage.setItem('password', password);
                     navigate('/dashboard');

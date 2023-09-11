@@ -24,7 +24,7 @@ const Profile = () => {
     setAnchorEl2(null);
   };
     const handleLogout = () => {
-        localStorage.removeItem('token'); // 토큰의 키를 이와 같이 수정해야 할 수 있습니다.
+        localStorage.removeItem('accessToken'); // 토큰의 키를 이와 같이 수정해야 할 수 있습니다.
     };
 
   return (

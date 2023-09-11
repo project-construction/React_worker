@@ -16,13 +16,15 @@ const Shadow = Loadable(lazy(() => import('../views/utilities/Shadow')))
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Register = Loadable(lazy(() => import('../views/authentication/Register')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
-const Memory = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/memory')));
-const Memory2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/memory2')));
-const Attention = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/attention')));
-const Attention2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/attention2')));
-const Concentration = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/concentration')));
-const Concentration2 = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/concentration2')));
+const DoorLock = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/DoorLock')));
+const Nback = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Nback')));
+const Hammering = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Hammering')));
+const Simon = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Simon')));
+const TrafficLight = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/TrafficLight')));
+const Puzzle = Loadable(lazy(() => import('../views/dashboard/components/UnityContents/Puzzle')));
 const Kdas = Loadable(lazy(() => import('../views/dashboard/components/Kdas')));
+const Signature = Loadable(lazy(()=>import('../views/dashboard/components/SignComponents/Signature')));
+const Logout = Loadable(lazy(()=>import('../views/dashboard/logout')));
 const Routes = [
   {
     path: '/',
@@ -35,15 +37,15 @@ const Routes = [
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },
       { path: '/ui/shadow', exact: true, element: <Shadow /> },
       { path: '*', element: <Navigate to="/auth/404" /> },
-
-      // Remove the PrivateRoute components
-      { path: '/button1', exact: true, element: <Memory /> },
-      { path: '/button2', exact: true, element: <Memory2 /> },
-      { path: '/button3', exact: true, element: <Attention /> },
-      { path: '/button4', exact: true, element: <Attention2 /> },
-      { path: '/button5', exact: true, element: <Concentration /> },
-      { path: '/button6', exact: true, element: <Concentration2 /> },
-      { path: '/button7', exact: true, element: <Kdas /> }
+      { path: '/doorlock', exact: true, element: <DoorLock /> },
+      { path: '/nback', exact: true, element: <Nback/> },
+      { path: '/hammering', exact: true, element: <Hammering /> },
+      { path: '/puzzle', exact: true, element: <Puzzle /> },
+      { path: '/simon', exact: true, element: <Simon/> },
+      { path: '/trafficlight', exact: true, element: <TrafficLight /> },
+      { path: '/survey', exact: true, element: <Kdas /> },
+      {path: '/signature',exact:true,element: <Signature/>},
+      {path: '/logout',exact:true,element: <Logout/>},
     ],
   },
   {
