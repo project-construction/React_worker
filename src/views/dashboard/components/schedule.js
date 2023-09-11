@@ -13,6 +13,9 @@ import {
 import { Link, Typography } from '@mui/material';
 
 const Schedule = () => {
+
+
+
   return (
     <DashboardCard title="주간 조 일정">
       <>

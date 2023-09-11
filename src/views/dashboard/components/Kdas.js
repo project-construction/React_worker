@@ -42,7 +42,7 @@ const questions = [
             "(심하게 호흡이 가쁘거나 가만히 있을 때도 호흡 곤란이 있었다).",
         options: ["0", "1", "2", "3"],
         name: "question4",
-        category: "stress"
+        category: "anxiety"
     },
     {
         question: "5. 무엇인가를 시작하는 것이 어려웠다.",
@@ -84,13 +84,13 @@ const questions = [
         question: "11. 자꾸 초조해졌다.",
         options: ["0", "1", "2", "3"],
         name: "question11",
-        category: "anxiety"
+        category: "stress"
     },
     {
         question: "12. 나는 진정하는 것이 어려웠다.",
         options: ["0", "1", "2", "3"],
         name: "question12",
-        category: "anxiety"
+        category: "stress"
     },
     {
         question: "13. 기운이 처지고 우울했다.",
@@ -114,13 +114,12 @@ const questions = [
         question: "16. 어떤 것에도 몰두 할 수가 없었다",
         options: ["0", "1", "2", "3"],
         name: "question16",
-        category: "anxiety"
+        category: "depression"
     },
     {
         question: "17. 나는 사람으로서 가치가 없다고 느꼈다.",
         options: ["0", "1", "2", "3"],
-        name: "question17",
-        category: "anxiety"
+        category: "depression"
     },
     {
         question: "18. 내가 꽤 신경질적이라고 느꼈다.",
@@ -169,7 +168,7 @@ function Kdas() {
                 updatedCategoryScores[category] = 0;
             }
 
-            updatedCategoryScores[category] += responseValue;
+            updatedCategoryScores[category] += responseValue*2;
         });
 
         Object.keys(updatedCategoryScores).forEach(category => {
@@ -231,8 +230,11 @@ function Kdas() {
             });
     };
 
+    const isQuestionsAnswer = responses.length === questions.length;
+    const ResponsesValid = !responses.includes(undefined);
+
     const handleSubmit = () => {
-        if (responses.length !== questions.length || responses.includes(undefined)) {
+        if (!isQuestionsAnswer || !ResponsesValid) {
             alert("응답하지 않은 항목이 있습니다.");
         } else {
             alert("설문 제출이 완료되었습니다. 감사합니다.");
@@ -274,9 +276,6 @@ function Kdas() {
                             2 → 상당히 또는 자주 해당됨<br />
                             3 → 매우 많이 또는 거의 대부분 해당됨
                         </h3>
-
-                        <CardBody>
-                            <Form>
                                 <Swiper
                                     className="banner"
                                     spaceBetween={50}
@@ -327,18 +326,21 @@ function Kdas() {
                                             </fieldset>
                                         </SwiperSlide>
                                     ))}
+                                    <SwiperSlide>
+                                        <div className="custom-button-container">
+                                            <div>
+                                                <Button
+                                                    className="custom-button"
+                                                    onClick={handleSubmit}
+                                                    disabled={submitted} // 이미 제출한 경우 버튼 비활성화
+                                                    style={{ display: 'block', marginTop: '80px', fontSize:'x-large'}} // 가운데 정렬 스타일 추가
+                                                >
+                                                    제출
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
                                 </Swiper>
-                                <div className="custom-button-container">
-                                    <Button
-                                        className="custom-button"
-                                        onClick={handleSubmit}
-                                        disabled={submitted} // 이미 제출한 경우 버튼 비활성화
-                                    >
-                                        제출
-                                    </Button>
-                                </div>
-                            </Form>
-
                             {submitted && (
                                 <div>
                                     <h4>항목별 점수</h4>
@@ -349,8 +351,6 @@ function Kdas() {
                                     </ul>
                                 </div>
                             )}
-                        </CardBody>
-
                     </Card>
                 </Col>
             </Row>

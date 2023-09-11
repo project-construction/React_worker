@@ -12,49 +12,6 @@ body {
     position: relative;
 }
 
-
-/* Responsive styles for screens up to 500px */
-@media (max-width: 500px) {
-    .custom-card-title {
-        font-size: 24px; /* Adjust the font size as needed */
-    }
-
-    fieldset {
-        margin: 0;
-        padding: 0;
-        border: none;
-    }
-
-    p {
-        font-weight: bold;
-        margin-bottom: 8px;
-    }
-
-    .custom-button-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 16px; /* Adjust the margin as needed */
-    }
-
-    label {
-        display: inline-flex; /* 라디오 버튼 수평 정렬 */
-        align-items: center;
-        margin-right: 16px; /* 라디오 버튼 간격 조정 */
-    }
-
-    .custom-button {
-        font-size: 18px; /* Adjust the font size as needed */
-        padding: 8px 8px; /* Adjust the padding as needed */
-    }
-
-    input[type="radio"] {
-        width: 20px;
-        height: 20px;
-        margin-right: 8px;
-    }
-
-}
-
 label{
     font-size: xx-large;
 }
@@ -70,7 +27,7 @@ h5 {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 100px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -103,7 +60,6 @@ h5 {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
 
 
 .custom-button:hover {
@@ -144,21 +100,21 @@ h5 {
 }
 
 fieldset{
-    width: 1000px;
+    width: 100%;
     margin: 0px auto;
     object-fit: cover;
-    object-position: 50% 50%;
+    border: none;
 }
 
 .swiper-container {
-    width:800px;
-    height:250px;
+    width:600px;
+    height:200px;
     border:5px solid silver;
     border-radius:7px;
     box-shadow:0 0 20px #ccc inset;
-    object-fit: cover;
-    object-position: 50% 50%;
+    object-position: left;
 }
+
 .swiper-slide {
     text-align:center;
     display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
@@ -166,4 +122,19 @@ fieldset{
     justify-content:center; /* 좌우 기준 중앙정렬 */
     object-fit: cover;
     object-position: 50% 50%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    background-color: white;
+    opacity: 0.5;
+    padding: 15px 5px;
+    border-radius: 20px;
+    color: black !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
 }
