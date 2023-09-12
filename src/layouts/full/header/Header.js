@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 // components
 import Profile from './Profile';
 import { IconBellRinging, IconMenu } from '@tabler/icons';
-import "./modal.css";
+
 
 
 const Header = (props) => {
