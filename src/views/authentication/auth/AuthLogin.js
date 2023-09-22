@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
     Box,
     Typography,
@@ -8,11 +8,11 @@ import {
     Stack,
     Checkbox
 } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
 
-const AuthLogin = ({ title, subtitle, subtext }) => {
+const AuthLogin = ({title, subtitle, subtext}) => {
     const [email, setEmail] = useState(''); // 변경된 부분
     const [password, setPassword] = useState('');
     const [rememberDevice, setRememberDevice] = useState(true);
@@ -26,7 +26,7 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({email, password}),
                 mode: 'cors'
             });
 
@@ -43,6 +43,27 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
                 }).catch(error => {
                     console.error('JSON 파싱 오류:', error);
                 });
+
+                // 추가한 API 호출
+                const jwtToken = localStorage.getItem('token'); // 토큰을 로컬 스토리지에서 가져옴
+                const attendResponse = await fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/attend/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${jwtToken}` // 토큰을 헤더에 추가
+                    },
+                    body: JSON.stringify({email, password}),
+                    mode: 'cors'
+                });
+
+                if (attendResponse.ok) {
+                    // Attend API 호출이 성공하면 원하는 작업을 수행하세요.
+                    console.log('Attend API 호출 성공');
+                } else {
+                    console.error('Attend API 호출 실패');
+                }
+
+
             } else {
                 console.error('로그인 실패');
             }
@@ -64,7 +85,8 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
 
             <Stack>
                 <Box>
-                    <Typography variant="subtitle1" fontWeight={600} component="label" htmlFor='email' mb="5px"> {/* 변경된 부분 */}
+                    <Typography variant="subtitle1" fontWeight={600} component="label" htmlFor='email'
+                                mb="5px"> {/* 변경된 부분 */}
                         Email
                     </Typography>
                     <CustomTextField
@@ -91,7 +113,8 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
                 <Stack justifyContent="space-between" direction="row" alignItems="center" my={2}>
                     <FormGroup>
                         <FormControlLabel
-                            control={<Checkbox checked={rememberDevice} onChange={() => setRememberDevice(!rememberDevice)} />}
+                            control={<Checkbox checked={rememberDevice}
+                                               onChange={() => setRememberDevice(!rememberDevice)}/>}
                             label="Remember this Device"
                         />
                     </FormGroup>
