@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function TrafficLight() { // 대문자로 변경
+function TrafficLight() {
     const unityContext = new UnityContext({
         loaderUrl: "build/TrafficLight.loader.js",
         dataUrl: "build/TrafficLight.data.unityweb",
@@ -9,36 +9,42 @@ function TrafficLight() { // 대문자로 변경
         codeUrl: "build/TrafficLight.wasm.unityweb",
     });
 
-    const [averageTime, setAverageTime] = useState(null);
-    const handleReceive = async (averageTime) => {
-        try {
-            const jwtToken = localStorage.getItem('accessToken');
-            const response = await fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/unityContent/insertContent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${jwtToken}`
-                },
-                body: JSON.stringify({ trafficLight:averageTime }),
-                mode: 'cors'
+    const [endTime, setEndTime] = useState(null);
+    const [WrongReaction,setWrongReaction] = useState(null);
+    const handleReceive = async (endTime,WrongReaction) => {
+        const jwtToken = localStorage.getItem('accessToken');
+        console.log(JSON.stringify({name:"trafficLight",score:endTime,wrong:WrongReaction}));
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${jwtToken}`
+            },
+            body: JSON.stringify({name:"trafficLight",score:endTime,wrong:WrongReaction}),
+            mode: 'cors'
+        };
+
+        fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/unityContent/insertContent', requestOptions)
+            .then(response => response)
+            .then(data => {
+                console.log('Category scores submitted:', data);
+            })
+            .catch(error => {
+                console.error('Error submitting category scores:', error);
             });
-            if(response.ok){
-                console.log("token : "+jwtToken+"data"+averageTime);
-            }
-            else{
-                console.log("error");
-            }
-        } catch (error) {
-            console.error('오류 발생:', error);
-        }
     };
+
     useEffect(function (){
-        unityContext.on("SendAverageTime",function (averageTime){
-            setAverageTime(averageTime);
-            localStorage.setItem("traffic_light",averageTime);
-            handleReceive(averageTime);
+        unityContext.on("SendWrongReaction",function (WrongReaction){
+            setWrongReaction(WrongReaction);
+            localStorage.setItem("trafficLight_WrongReaction",WrongReaction);
+        })
+        unityContext.on("SendAverageTime",function (endTime){
+            setEndTime(endTime);
+            localStorage.setItem("trafficLight_endTime",endTime);
         });
-    },[averageTime]);
+        handleReceive(endTime,WrongReaction);
+    },[endTime,WrongReaction]);
     const handleFullscreen = () => {
         if (unityContext) {
             unityContext.setFullscreen(true);

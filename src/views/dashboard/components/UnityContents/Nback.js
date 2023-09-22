@@ -10,7 +10,7 @@ function Nback() {
     });
 
     const [rightRatio, setRightRatio] = useState(null);
-    const handleReceive = async (endTime) => {
+    const handleReceive = async (rightRatio) => {
         try {
             const jwtToken = localStorage.getItem('accessToken');
             const response = await fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/unityContent/insertContent', {
@@ -19,7 +19,7 @@ function Nback() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${jwtToken}`
                 },
-                body: JSON.stringify({ nBack: rightRatio }),
+                body: JSON.stringify({ name:"nBack",score: rightRatio ,collect:0,wrong:0}),
                 mode: 'cors'
             });
             if(response.ok){
@@ -36,7 +36,7 @@ function Nback() {
         unityContext.on("SendRightcntRatio",function (rightRatio){
             setRightRatio(rightRatio);
             localStorage.setItem("rightRatio",rightRatio);
-            handleReceive();
+            handleReceive(rightRatio);
         });
     },[rightRatio]);
     const handleFullscreen = () => {

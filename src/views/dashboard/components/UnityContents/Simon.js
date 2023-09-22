@@ -22,12 +22,6 @@ function Puzzle() {
                 body: JSON.stringify({ simon:passedRoundNum }),
                 mode: 'cors'
             });
-            if(response.ok){
-                console.log("token : "+jwtToken+"data"+passedRoundNum);
-            }
-            else{
-                console.log("error");
-            }
         } catch (error) {
             console.error('오류 발생:', error);
         }

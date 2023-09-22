@@ -24,12 +24,6 @@ function DoorLock() {
                 body: JSON.stringify({ doorLock: endTime }),
                 mode: 'cors'
             });
-
-            if (response.ok) {
-                console.log("token : " + jwtToken + " data " + endTime);
-            } else {
-                console.log("error");
-            }
         } catch (error) {
             console.error('오류 발생:', error);
         }

@@ -12,16 +12,18 @@ function Hammering() {
     });
 
     const [endTime, setEndTime] = useState(null);
-    const handleReceive = async (endTime) => {
+    const [collectReaction,setCollectReaction] = useState(null);
+    const [wrongReaction,setWrongReaction] = useState(null);
+    const handleReceive = async (endTime,collectReaction,wrongReaction) => {
         const jwtToken = localStorage.getItem('accessToken');
-        console.log(JSON.stringify({hammering:endTime}));
+
         const requestOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwtToken}`
             },
-            body: JSON.stringify({hammering:endTime}),
+            body: JSON.stringify({name:"hammering",score:endTime,correct:collectReaction,wrong:wrongReaction}),
             mode: 'cors'
         };
 
@@ -29,19 +31,30 @@ function Hammering() {
             .then(response => response)
             .then(data => {
                 console.log('Category scores submitted:', data);
+                console.log(JSON.stringify({name:"hammering",score:endTime,correct:collectReaction,wrong:wrongReaction}));
             })
             .catch(error => {
                 console.error('Error submitting category scores:', error);
+                console.log(JSON.stringify({name:"hammering",score:endTime,correct:collectReaction,wrong:wrongReaction}));
             });
     };
 
     useEffect(function (){
         unityContext.on("SendEndTime",function (endTime){
             setEndTime(endTime);
-            localStorage.setItem("endTime2",endTime);
-            handleReceive(endTime);
+            localStorage.setItem("Hammering_endTime",endTime);
+
         });
-    },[endTime]);
+        unityContext.on("SendCollectReaction",function (collectReaction){
+            setCollectReaction(collectReaction);
+            localStorage.setItem("Hammering_CollectReaction",collectReaction);
+        })
+        unityContext.on("SendWrongReaction",function (wrongReaction){
+            setWrongReaction(wrongReaction);
+            localStorage.setItem("Hammering_CollectReaction",wrongReaction);
+        })
+        handleReceive(endTime,collectReaction,wrongReaction);
+    },[endTime,collectReaction,wrongReaction]);
     const handleFullscreen = () => {
         if (unityContext) {
             unityContext.setFullscreen(true);

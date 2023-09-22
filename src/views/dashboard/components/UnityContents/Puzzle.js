@@ -10,35 +10,46 @@ function Puzzle() {
     });
 
     const [endTime, setEndTime] = useState(null);
-    const handleReceive = async (endTime) => {
-        try {
-            const jwtToken = localStorage.getItem('accessToken');
-            const response = await fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/unityContent/insertContent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${jwtToken}`
-                },
-                body: JSON.stringify({ numberPuzzle:endTime }),
-                mode: 'cors'
+    const [CollectReaction,setCollectReaction] = useState(null);
+    const [WrongReaction,setWrongReaction] = useState(null);
+    const handleReceive = async (endTime,CollectReaction,WrongReaction) => {
+        const jwtToken = localStorage.getItem('accessToken');
+        console.log(JSON.stringify({name:"puzzle",score:endTime,correct:CollectReaction,wrong:WrongReaction}));
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${jwtToken}`
+            },
+            body: JSON.stringify({name:"puzzle",score:endTime,correct:CollectReaction,wrong:WrongReaction}),
+            mode: 'cors'
+        };
+
+        fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/unityContent/insertContent', requestOptions)
+            .then(response => response)
+            .then(data => {
+                console.log('Category scores submitted:', data);
+            })
+            .catch(error => {
+                console.error('Error submitting category scores:', error);
             });
-            if(response.ok){
-                console.log("token : "+jwtToken+"data"+endTime);
-            }
-            else{
-                console.log("error");
-            }
-        } catch (error) {
-            console.error('오류 발생:', error);
-        }
     };
+
     useEffect(function (){
         unityContext.on("SendEndTime",function (endTime){
             setEndTime(endTime);
-            localStorage.setItem("endTime1",endTime);
-            handleReceive(endTime);
+            localStorage.setItem("Puzzle_endTime",endTime);
         });
-    },[endTime]);
+        unityContext.on("SendCollectReaction",function (CollectReaction){
+            setCollectReaction(CollectReaction);
+            localStorage.setItem("Puzzle_CollectReaction",CollectReaction);
+        });
+        unityContext.on("SendWrongReaction",function (WrongReaction){
+            setWrongReaction(WrongReaction);
+            localStorage.setItem("Puzzle_WrongReaction",WrongReaction);
+        });
+        handleReceive(endTime,CollectReaction,WrongReaction);
+    },[endTime,CollectReaction,WrongReaction]);
     const handleFullscreen = () => {
         if (unityContext) {
             unityContext.setFullscreen(true);
