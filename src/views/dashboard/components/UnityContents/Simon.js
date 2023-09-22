@@ -19,7 +19,7 @@ function Puzzle() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${jwtToken}`
                 },
-                body: JSON.stringify({ simon:passedRoundNum }),
+                body: JSON.stringify({ name:"simon",score: passedRoundNum ,collect:0,wrong:0}),
                 mode: 'cors'
             });
         } catch (error) {
@@ -29,7 +29,7 @@ function Puzzle() {
     useEffect(function (){
         unityContext.on("SendPassedRoundNum",function (passedRoundNum){
             setPassedRoundNum(passedRoundNum);
-            localStorage.setItem("endTime1",passedRoundNum);
+            localStorage.setItem("simon",passedRoundNum);
             handleReceive(passedRoundNum);
         });
     },[passedRoundNum]);

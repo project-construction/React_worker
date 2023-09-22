@@ -23,7 +23,7 @@ function Hammering() {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwtToken}`
             },
-            body: JSON.stringify({name:"hammering",score:endTime,correct:collectReaction,wrong:wrongReaction}),
+             body: JSON.stringify({name:"hammering",score:endTime,correct:collectReaction,wrong:wrongReaction}),
             mode: 'cors'
         };
 

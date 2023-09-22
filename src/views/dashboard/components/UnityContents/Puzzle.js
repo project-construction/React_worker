@@ -14,14 +14,14 @@ function Puzzle() {
     const [WrongReaction,setWrongReaction] = useState(null);
     const handleReceive = async (endTime,CollectReaction,WrongReaction) => {
         const jwtToken = localStorage.getItem('accessToken');
-        console.log(JSON.stringify({name:"puzzle",score:endTime,correct:CollectReaction,wrong:WrongReaction}));
+        console.log(JSON.stringify({name:"numberPuzzle",score:endTime,correct:CollectReaction,wrong:WrongReaction}));
         const requestOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwtToken}`
             },
-            body: JSON.stringify({name:"puzzle",score:endTime,correct:CollectReaction,wrong:WrongReaction}),
+            body: JSON.stringify({name:"numberPuzzle",score:endTime,correct:CollectReaction,wrong:WrongReaction}),
             mode: 'cors'
         };
 

@@ -21,7 +21,7 @@ function DoorLock() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${jwtToken}`
                 },
-                body: JSON.stringify({ doorLock: endTime }),
+                body: JSON.stringify({ name:"doorLock",score: endTime ,collect:0,wrong:0}),
                 mode: 'cors'
             });
         } catch (error) {
