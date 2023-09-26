@@ -26,12 +26,6 @@ function TrafficLight() {
 
         fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/unityContent/insertContent', requestOptions)
             .then(response => response)
-            .then(data => {
-                console.log('Category scores submitted:', data);
-            })
-            .catch(error => {
-                console.error('Error submitting category scores:', error);
-            });
     };
 
     useEffect(function (){

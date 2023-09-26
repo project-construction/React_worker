@@ -26,11 +26,13 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [address, setAddress] = useState('');
     const [note, setNote] = useState('');
-
+    const [grade, setGrade] = useState('');
     const handleIdChange = (event) => {
         setId(event.target.value);
     };
-
+    const handleGradeChange = (event) => {
+        setGrade(event.target.value);
+    };
     const handleTeamChange = (event) => {
         setTeam(event.target.value);
     };
@@ -81,7 +83,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({role:"USER",userid:id,team:team,name:name,birth:birthday,gender:selectedGender,email:email,phone:phoneNumber, password:password,address:address}),
+                    body: JSON.stringify({role:"USER",userid:id,team:team,name:name,birth:birthday,gender:selectedGender,email:email,phone:phoneNumber, password:password,address:address, grade:grade }),
                     mode: 'cors'
                 });
 
@@ -190,6 +192,29 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                             />
                             여성
                         </label>
+                    </div>
+                    <Typography variant="subtitle1" fontWeight={600} component="label" htmlFor="gender" mb="5px" mt="25px">
+                        최종학력
+                    </Typography>
+                    <div style={{ display: 'flex', gap: '10px' }}>
+                            <select
+                                value={grade}
+                                onChange={handleGradeChange}
+                                style={{
+                                    padding: '8px',
+                                    borderRadius: '5px',
+                                    border: '1px solid #ccc',
+                                    backgroundColor: '#fff',
+                                    fontSize: '15px',
+                                }}
+                            >
+                                <option value="초졸이하">초졸이하</option>
+                                <option value="초졸">초졸</option>
+                                <option value="중졸">중졸</option>
+                                <option value="고졸">고졸</option>
+                                <option value="대졸">대졸</option>
+                                <option value="대학원이상">대학원이상</option>
+                            </select>
                     </div>
 
                     <Typography variant="subtitle1" fontWeight={600} component="label" htmlFor="email" mb="5px" mt="25px">
