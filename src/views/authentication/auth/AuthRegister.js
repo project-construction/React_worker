@@ -6,12 +6,9 @@ import CustomTextField from '../../../components/forms/theme-elements/CustomText
 import { Stack } from '@mui/system';
 
 const AuthRegister = ({ title, subtitle, subtext }) => {
-    const [selectedRole, setSelectedRole] = useState('');
     const [selectedGender, setSelectedGender] = useState('');
 
-    const handleRoleChange = (event) => {
-        setSelectedRole(event.target.value);
-    };
+
     const navigate = useNavigate();
     const handleGenderChange = (event) => {
         setSelectedGender(event.target.value);
@@ -32,6 +29,8 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
     };
     const handleGradeChange = (event) => {
         setGrade(event.target.value);
+        console.log(event.target.value);
+
     };
     const handleTeamChange = (event) => {
         setTeam(event.target.value);
@@ -83,7 +82,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({role:"USER",userid:id,team:team,name:name,birth:birthday,gender:selectedGender,email:email,phone:phoneNumber, password:password,address:address, grade:grade }),
+                    body: JSON.stringify({role:"USER",userid:id,team:team,name:name,birth:birthday,gender:selectedGender,email:email,phone:phoneNumber, password:password,address:address,grade:grade}),
                     mode: 'cors'
                 });
 
@@ -91,6 +90,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
                     response.json().then(data => {
                         navigate('/auth/login');
                     }).catch(error => {
+                        console.log(JSON.stringify({role:"USER",userid:id,team:team,name:name,birth:birthday,gender:selectedGender,email:email,phone:phoneNumber, password:password,address:address, grade:grade }))
                         console.error('JSON 파싱 오류:', error);
                     });
                 } else {
