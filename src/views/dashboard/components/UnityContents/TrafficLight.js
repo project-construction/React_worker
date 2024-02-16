@@ -24,7 +24,7 @@ function TrafficLight() {
             mode: 'cors'
         };
 
-        fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/unityContent/insertContent', requestOptions)
+        fetch('http://localhost:8080/unityContent/insertContent', requestOptions)
             .then(response => response)
     };
 

@@ -13,7 +13,7 @@ function Puzzle() {
     const handleReceive = async (passedRoundNum) => {
         try {
             const jwtToken = localStorage.getItem('accessToken');
-            const response = await fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/unityContent/insertContent', {
+            const response = await fetch('http://localhost:8080/unityContent/insertContent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

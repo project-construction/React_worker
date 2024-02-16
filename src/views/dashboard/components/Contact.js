@@ -63,7 +63,7 @@ const products = [
 const Contact = () => {
     return (
 
-        <DashboardCard title="주요 연락망 및 비상 연락망">
+        <DashboardCard title="Network of Contacts">
             <Box sx={{overflow: 'auto', width: {xs: '280px', sm: 'auto'}}}>
                 <Table
                     aria-label="simple table"
