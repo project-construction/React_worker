@@ -7,24 +7,24 @@ import { uniqueId } from 'lodash';
 const LogoutMenuitems = [
     {
         navlabel: true,
-        subheader: '메인',
+        subheader: 'Main',
     },
 
     {
         id: uniqueId(),
-        title: '대시보드',
+        title: 'Dashboard',
         icon: IconLayoutDashboard,
         href: '/dashboard',
     },
     {
         id: uniqueId(),
-        title: '로그인',
+        title: 'Login',
         icon: IconLogin,
         href: '/auth/login',
     },
     {
         id: uniqueId(),
-        title: '회원가입',
+        title: 'SignUp',
         icon: IconUserPlus,
         href: '/auth/register',
     },

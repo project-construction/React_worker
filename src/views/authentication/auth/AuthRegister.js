@@ -77,7 +77,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
     const handleSubmit = async () => {
         if (passwordsMatch) {
             try {
-                const response = await fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/auth/signup', {
+                const response = await fetch('http://localhost:8080/auth/signup', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

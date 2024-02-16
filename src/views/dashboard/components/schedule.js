@@ -17,7 +17,7 @@ const Schedule = () => {
 
 
   return (
-    <DashboardCard title="주간 조 일정">
+    <DashboardCard title="Schedule">
       <>
         <Timeline
           className="theme-timeline"
@@ -37,15 +37,7 @@ const Schedule = () => {
             },
           }}
         >
-          <TimelineItem>
-            <TimelineOppositeContent>08:45 am</TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot color="primary" variant="outlined" />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>주간 조 출근</TimelineContent>
-          </TimelineItem>
-          
+
           <TimelineItem>
             <TimelineOppositeContent>8:50 am</TimelineOppositeContent>
             <TimelineSeparator>
@@ -53,7 +45,7 @@ const Schedule = () => {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <Typography fontWeight="600">아침 조례 및 아침 체조</Typography>{' '}
+              <Typography fontWeight="600">Morning Ordinance</Typography>{' '}
             </TimelineContent>
           </TimelineItem>
 
@@ -64,17 +56,17 @@ const Schedule = () => {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <Typography fontWeight="600">아침 일과 시작</Typography>{' '}
+              <Typography fontWeight="600">Go to Work</Typography>{' '}
             </TimelineContent>
           </TimelineItem>
-          
+
           <TimelineItem>
             <TimelineOppositeContent>11:30 am</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="success" variant="outlined" />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent>점심 시간</TimelineContent>
+            <TimelineContent> Lunch break</TimelineContent>
           </TimelineItem>
 
           <TimelineItem>
@@ -84,9 +76,9 @@ const Schedule = () => {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <Typography fontWeight="600">집중 안전 교육 시간</Typography>{' '}
+              <Typography fontWeight="600">Safety Education</Typography>{' '}
               <Link href="https://www.youtube.com/watch?v=uohfcYDo3Hw&list=PLJmugJtM_vBmKMc4nz-ECBQC4MaO0n4ks" underline="none">
-                안전 교육 영상
+                Video
               </Link>
             </TimelineContent>
           </TimelineItem>
@@ -97,7 +89,7 @@ const Schedule = () => {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <Typography fontWeight="600">오후 작업 시작</Typography>
+              <Typography fontWeight="600">Go to Work</Typography>
             </TimelineContent>
           </TimelineItem>
 
@@ -106,7 +98,7 @@ const Schedule = () => {
             <TimelineSeparator>
               <TimelineDot color="success" variant="outlined" />
             </TimelineSeparator>
-            <TimelineContent>불시 안전 점검</TimelineContent>
+            <TimelineContent>Safety inspection</TimelineContent>
           </TimelineItem>
 
           <TimelineItem>
@@ -114,7 +106,7 @@ const Schedule = () => {
             <TimelineSeparator>
               <TimelineDot color="success" variant="outlined" />
             </TimelineSeparator>
-            <TimelineContent>야간조 인수인계 및 퇴근</TimelineContent>
+            <TimelineContent>Transition and leaving work</TimelineContent>
           </TimelineItem>
         </Timeline>
       </>

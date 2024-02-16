@@ -12,51 +12,52 @@ import DashboardCard from '../../../components/shared/DashboardCard';
 
 const products = [
     {
-        id: "1",
-        name: "김철수",
-        post: "팀장",
-        pname: "건설 안전관리 팀장",
-        priority: "일반",
-        pbg: "success.main",
-        pnum: "010-1234-5678",
+        "id": "1",
+        "name": "John Smith",
+        "post": "Team Leader",
+        "pname": "Construction Safety Management Team Leader",
+        "priority": "General",
+        "pbg": "success.main",
+        "pnum": "010-1234-5678"
     },
     {
-        id: "2",
-        name: "박민수",
-        post: "대리",
-        pname: "안전 세부 관리자",
-        priority: "일반",
-        pbg: "success.main",
-        pnum: "010-4924-5992",
+        "id": "2",
+        "name": "Michael Park",
+        "post": "Deputy",
+        "pname": "Safety Detail Manager",
+        "priority": "General",
+        "pbg": "success.main",
+        "pnum": "010-4924-5992"
     },
     {
-        id: "3",
-        name: "김지은",
-        post: "사원",
-        pname: "집중 안전 교육 강사",
-        priority: "일반",
-        pbg: "success.main",
-        pnum: "010-1243-4124",
+        "id": "3",
+        "name": "Emily Kim",
+        "post": "Staff",
+        "pname": "Focused Safety Education Instructor",
+        "priority": "General",
+        "pbg": "success.main",
+        "pnum": "010-1243-4124"
     },
     {
-        id: "4",
-        name: "이서아",
-        post: "사원",
-        pname: "불시 안전 점검 관리자",
-        priority: "일반",
-        pbg: "success.main",
-        pnum: "010-4565-4122",
+        "id": "4",
+        "name": "Sarah Lee",
+        "post": "Staff",
+        "pname": "Unscheduled Safety Inspection Manager",
+        "priority": "General",
+        "pbg": "success.main",
+        "pnum": "010-4565-4122"
     },
     {
-        id: "5",
-        name: "이수혁",
-        post: "의무 소방대원",
-        pname: "소방사",
-        priority: "비상 연락망",
-        pbg: "error.main",
-        pnum: "010-1199-1199",
-    },
-];
+        "id": "5",
+        "name": "Alex Johnson",
+        "post": "Obligatory Firefighter",
+        "pname": "Firefighter",
+        "priority": "Emergency Contact",
+        "pbg": "error.main",
+        "pnum": "010-1199-1199"
+    }
+]
+
 
 
 const Contact = () => {

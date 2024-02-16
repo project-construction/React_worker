@@ -8,12 +8,12 @@ import './Attendance.css';
 const Attendance = () => {
 
   return (
-      <DashboardCard title="오늘의 출석" >
+      <DashboardCard title="Attendance" >
         <Link to="/icons">
           <img  src={require("./출석.png")} alt="출석 이미지" width="100" height="100" style={{ display: "block", margin: "0 auto" }}/>
           <p></p>
           <Button className="custom-button2" style={{ display: "block", margin: "0 auto" }} >
-            출석
+            Attendance
           </Button>
         </Link>
       </DashboardCard>

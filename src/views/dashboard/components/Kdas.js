@@ -20,7 +20,7 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Navigation, Pagination, Autoplay])   // 추가
 const questions = [
     {
-        question: "1. 나는 안정을 취하기 힘들었다.",
+        question: "1. found it hard to wind down.",
         options: ["0", "1", "2", "3"],
         name: "question1",
         category: "stress"
@@ -191,7 +191,7 @@ function Kdas() {
             mode: 'cors'
         };
 
-        fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/survey/check', requestOptions)
+        fetch('http://localhost:8080/survey/check', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log('Survey submission status:', data);
@@ -220,7 +220,7 @@ function Kdas() {
             mode: 'cors'
         };
 
-        fetch('https://port-0-spring-eu1k2llldpju8v.sel3.cloudtype.app/survey/update', requestOptions)
+        fetch('http://localhost:8080/survey/update', requestOptions)
             .then(response => response)
             .then(data => {
                 console.log('Category scores submitted:', data);
@@ -263,18 +263,19 @@ function Kdas() {
                 <Col>
                     <Card>
                         <CardTitle tag="h1" className="custom-card-title">
-                            우울, 불안 및 스트레스 척도(DASS)21-한글판
+                            Depression, Anxiety and Stress Scale (DASS)21
                         </CardTitle>
                         <p>
-                            지난 한 주 동안, 아래의 문항이 귀하에게 얼마큼 해당되었는지 0, 1, 2, 3번에 동그라미 표시해 주십시오.
-                            정답이 있는 것이 아니므로 오래 생각하지 마시고 답해 주시기 바랍니다.
+                            Please read each statement and circle a number 0, 1, 2 or 3 which indicates how much the statement
+                            applied to you over the past week. There are no right or wrong answers. Do not spend too much
+                            time on any statement.
                         </p>
-                        <h2>▶ 각 문항에 대해 선택할 수 있는 응답의 의미는 다음과 같습니다.</h2>
+                        <h2>▶ The rating scale is as follows: </h2>
                         <h3>
-                            0 → 전혀 해당되지 않음<br />
-                            1 → 약간 또는 가끔 해당됨<br />
-                            2 → 상당히 또는 자주 해당됨<br />
-                            3 → 매우 많이 또는 거의 대부분 해당됨
+                            0 → Did not apply to me at all<br />
+                            1 → Applied to me to some degree, or some of the time<br />
+                            2 → Applied to me to a considerable degree or a good part of time<br />
+                            3 →  Applied to me very much or most of the time
                         </h3>
                                 <Swiper
                                     className="banner"

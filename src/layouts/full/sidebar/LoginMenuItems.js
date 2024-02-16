@@ -9,12 +9,12 @@ function removeTokenFromLocalStorage() {
 const LoginMenuitems = [
   {
     navlabel: true,
-    subheader: '메인',
+    subheader: 'Main',
   },
 
   {
     id: uniqueId(),
-    title: '대시보드',
+    title: 'Dashboard',
     icon: IconLayoutDashboard,
     href: '/dashboard',
   },
@@ -24,13 +24,13 @@ const LoginMenuitems = [
   },
   {
     id: uniqueId(),
-    title: '출석',
+    title: 'Attendance',
     icon: IconMoodHappy,
     href: '/icons',
   },
   {
     id: uniqueId(),
-    title: '전자서명',
+    title: 'Sign',
     icon: IconAperture,
     href: '/signature',
   },
