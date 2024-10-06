@@ -336,7 +336,7 @@ function Kdas() {
                                                     disabled={submitted} // 이미 제출한 경우 버튼 비활성화
                                                     style={{ display: 'block', marginTop: '80px', fontSize:'x-large'}} // 가운데 정렬 스타일 추가
                                                 >
-                                                    제출
+                                                    Submit
                                                 </Button>
                                             </div>
                                         </div>

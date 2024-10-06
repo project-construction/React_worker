@@ -29,16 +29,16 @@ const Icons = () => {
     };
 
     return (
-        <PageContainer title="출석" description="this is check">
-            <DashboardCard title="출석">
+        <PageContainer title="Attendance" description="this is check">
+            <DashboardCard title="Attendance">
                 <div className="attendance-form">
                     <input
                         ref={contentInput}
                         value={state.content}
                         onChange={handleChangeState}
-                        placeholder="출석 번호를 입력하세요"
+                        placeholder="Enter Your Code"
                     />
-                    <button onClick={handleSubmit}>제출</button>
+                    <button onClick={handleSubmit}>Submit</button>
                 </div>
             </DashboardCard>
         </PageContainer>

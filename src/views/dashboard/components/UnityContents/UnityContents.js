@@ -9,13 +9,14 @@ const Unity = () => {
     const handleLinkClick = (to) => {
         const token = localStorage.getItem('accessToken'); // 로컬 스토리지에서 토큰 가져오기
 
-        if (!token) {
-            // 토큰이 없으면 경고창을 띄우고 라우트 이동을 막습니다.
-            alert('로그인이 필요합니다.');
-        } else {
-            // 토큰이 있으면 해당 라우트로 이동합니다.
-            navigate(to);
-        }
+        // if (!token) {
+        //     // 토큰이 없으면 경고창을 띄우고 라우트 이동을 막습니다.
+        //     alert('로그인이 필요합니다.');
+        // } else {
+        //     // 토큰이 있으면 해당 라우트로 이동합니다.
+        //
+        // }
+        navigate(to);
     };
     return (
         <div>
