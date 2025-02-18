@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Unity, { UnityContext } from "react-unity-webgl";
-
+import {useNavigate} from "react-router-dom";
+import {API} from '../../../../api/config'
 function DoorLock() {
     const [unityContext, setUnityContext] = useState(null);
     const [clearRound, setClearRound] = useState(null);
-
+    const navigator = useNavigate();
+    const handleMain = () =>{
+        navigator('/dashboard');
+    }
     useEffect(() => {
         const initUnityContext = async () => {
             const context = new UnityContext({
@@ -20,6 +24,12 @@ function DoorLock() {
                 localStorage.setItem("doorLock", doorLock);
                 handleReceive(doorLock);
             });
+            context.on("ReturnMainMenu", (value) => {
+                console.log(value)
+                if (value === 200) {
+                    handleMain();
+                }
+            });
         };
         initUnityContext();
     }, []);
@@ -27,7 +37,7 @@ function DoorLock() {
     const handleReceive = async (endTime) => {
         try {
             const jwtToken = localStorage.getItem('accessToken');
-            await fetch('http://localhost:8080/unityContent/insertContent', {
+            await fetch(API.RECODE_RESULT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

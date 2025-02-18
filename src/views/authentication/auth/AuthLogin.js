@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {API} from '../../../api/config';
 import {
     Box,
     Typography,
@@ -21,7 +22,7 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:8080/auth/login', {
+            const response = await fetch(API.LOGIN, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

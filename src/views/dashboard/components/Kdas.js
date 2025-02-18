@@ -16,7 +16,7 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";   // 추�
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
-
+import {API} from '../../../api/config'
 SwiperCore.use([Navigation, Pagination, Autoplay])   // 추가
 const questions = [
     {
@@ -191,7 +191,7 @@ function Kdas() {
             mode: 'cors'
         };
 
-        fetch('http://localhost:8080/survey/check', requestOptions)
+        fetch(API.SURVEY_CHECK, requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log('Survey submission status:', data);
@@ -220,7 +220,7 @@ function Kdas() {
             mode: 'cors'
         };
 
-        fetch('http://localhost:8080/survey/update', requestOptions)
+        fetch(API.SURVEY_UPDATE, requestOptions)
             .then(response => response)
             .then(data => {
                 console.log('Category scores submitted:', data);

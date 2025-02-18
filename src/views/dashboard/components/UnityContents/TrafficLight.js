@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Unity, { UnityContext } from "react-unity-webgl";
-
+import {useNavigate} from "react-router-dom";
+import {API} from '../../../../api/config'
 function TrafficLight() {
     const unityContext = new UnityContext({
         loaderUrl: "build/TrafficLight.loader.js",
@@ -11,6 +12,10 @@ function TrafficLight() {
 
     const [endTime, setEndTime] = useState(null);
     const [WrongReaction,setWrongReaction] = useState(null);
+    const navigator = useNavigate();
+    const handleMain = () =>{
+        navigator('/dashboard');
+    }
     const handleReceive = async (endTime,WrongReaction) => {
         const jwtToken = localStorage.getItem('accessToken');
         console.log(JSON.stringify({name:"trafficLight",score:endTime,wrong:WrongReaction}));
@@ -24,7 +29,7 @@ function TrafficLight() {
             mode: 'cors'
         };
 
-        fetch('http://localhost:8080/unityContent/insertContent', requestOptions)
+        fetch(API.RECODE_RESULT, requestOptions)
             .then(response => response)
     };
 
@@ -36,6 +41,12 @@ function TrafficLight() {
         unityContext.on("SendAverageTime",function (endTime){
             setEndTime(endTime);
             localStorage.setItem("trafficLight_endTime",endTime);
+        });
+        unityContext.on("ReturnMainMenu", (value) => {
+            console.log(value)
+            if (value === 200) {
+                handleMain();
+            }
         });
         handleReceive(endTime,WrongReaction);
     },[endTime,WrongReaction]);

@@ -4,6 +4,7 @@ import {Link, useNavigate} from 'react-router-dom';
 
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
 import { Stack } from '@mui/system';
+import {API} from "../../../api/config";
 
 const AuthRegister = ({ title, subtitle, subtext }) => {
     const [selectedGender, setSelectedGender] = useState('');
@@ -77,7 +78,7 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
     const handleSubmit = async () => {
         if (passwordsMatch) {
             try {
-                const response = await fetch('http://localhost:8080/auth/signup', {
+                const response = await fetch(API.REGISTER, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

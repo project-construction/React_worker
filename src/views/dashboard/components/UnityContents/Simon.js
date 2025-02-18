@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Unity, {UnityContext} from "react-unity-webgl";
-
+import {useNavigate} from "react-router-dom";
+import {API} from '../../../../api/config'
 function Puzzle() {
     const unityContext = new UnityContext({
         loaderUrl: "build/Simon.loader.js",
@@ -8,12 +9,15 @@ function Puzzle() {
         frameworkUrl: "build/Simon.framework.js.unityweb",
         codeUrl: "build/Simon.wasm.unityweb",
     });
-
+    const navigator = useNavigate();
+    const handleMain = () =>{
+        navigator('/dashboard');
+    }
     const [passedRoundNum, setPassedRoundNum] = useState(null);
     const handleReceive = async (passedRoundNum) => {
         try {
             const jwtToken = localStorage.getItem('accessToken');
-            const response = await fetch('http://localhost:8080/unityContent/insertContent', {
+            const response = await fetch(API.RECODE_RESULT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -31,6 +35,12 @@ function Puzzle() {
             setPassedRoundNum(passedRoundNum);
             localStorage.setItem("simon",passedRoundNum);
             handleReceive(passedRoundNum);
+        });
+        unityContext.on("ReturnMainMenu", (value) => {
+            console.log(value)
+            if (value === 200) {
+                handleMain();
+            }
         });
     },[passedRoundNum]);
     const handleFullscreen = () => {

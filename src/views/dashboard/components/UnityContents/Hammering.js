@@ -1,16 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import Unity, {UnityContext} from "react-unity-webgl";
 import './ContentsStyle.css';
-
+import {useNavigate} from "react-router-dom";
+import {API} from '../../../../api/config'
 function Hammering() {
     const unityContext = new UnityContext({
-        loaderUrl: "build/Hammering.loader.js",
-        dataUrl: "build/Hammering.data.unityweb",
-        frameworkUrl: "build/Hammering.framework.js.unityweb",
-        codeUrl: "build/Hammering.wasm.unityweb",
+        loaderUrl: "build/build.loader.js",
+        dataUrl: "build/build.data",
+        frameworkUrl: "build/build.framework.js",
+        codeUrl: "build/build.wasm",
 
     });
-
+    const navigator = useNavigate();
+    const handleMain = () =>{
+        navigator('/dashboard');
+    }
     const [endTime, setEndTime] = useState(null);
     const [collectReaction,setCollectReaction] = useState(null);
     const [wrongReaction,setWrongReaction] = useState(null);
@@ -27,7 +31,7 @@ function Hammering() {
             mode: 'cors'
         };
 
-        fetch('http://localhost:8080/unityContent/insertContent', requestOptions)
+        fetch(API.RECODE_RESULT, requestOptions)
             .then(response => response)
             .then(data => {
                 console.log('Category scores submitted:', data);
@@ -53,6 +57,12 @@ function Hammering() {
             setWrongReaction(wrongReaction);
             localStorage.setItem("Hammering_CollectReaction",wrongReaction);
         })
+        unityContext.on("ReturnMainMenu", (value) => {
+            console.log(value)
+            if (value === 200) {
+                handleMain();
+            }
+        });
         handleReceive(endTime,collectReaction,wrongReaction);
     },[endTime,collectReaction,wrongReaction]);
     const handleFullscreen = () => {

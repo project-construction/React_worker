@@ -85,23 +85,6 @@ const Header = (props) => {
             }}
         >
           <div className="modal-content">
-            <p>리액트로 모달 구현하기할말이많은데</p>
-            <p>정리가잘안돼</p>
-            <p>도와줘SOS</p>
-            <p>하나둘셋넷</p>
-            <p>어떤표현법을 써야만 어쩌구쩌쩌구
-            마음을 꺼내서 너에게 복사해
-            붙여야 하는건가</p>
-              <p>어느 멋진 날에</p>
-              <p>나에게 짠 하고 나타나선</p>
-              <p>내 맘을 취하고 시선을 빼앗고 넌 욕심쟁이</p>
-              <p>내가 하고 싶었던 말은</p>
-              <p>Don't take this the wrong way</p>
-              <p>But 너 말곤 안 보여</p>
-              <p>Your so ice ice baby</p>
-              <p>At the same time 넌 날 녹여</p>
-              <p>Just can't get enough</p>
-              <p>날 너에게 숨김없이 보여 주고 싶어 oh</p>
             <button className="modal-close-btn" onClick={() => setModalOpen(false)}>
               모달 닫기
             </button>

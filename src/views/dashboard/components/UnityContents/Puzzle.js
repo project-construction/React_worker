@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Unity, {UnityContext} from "react-unity-webgl";
-
+import {useNavigate} from "react-router-dom";
+import {API} from '../../../../api/config'
 function Puzzle() {
     const unityContext = new UnityContext({
         loaderUrl: "build/Puzzle.loader.js",
@@ -12,6 +13,10 @@ function Puzzle() {
     const [endTime, setEndTime] = useState(null);
     const [CollectReaction,setCollectReaction] = useState(null);
     const [WrongReaction,setWrongReaction] = useState(null);
+    const navigator = useNavigate();
+    const handleMain = () =>{
+        navigator('/dashboard');
+    }
     const handleReceive = async (endTime,CollectReaction,WrongReaction) => {
         const jwtToken = localStorage.getItem('accessToken');
         console.log(JSON.stringify({name:"numberPuzzle",score:endTime,correct:CollectReaction,wrong:WrongReaction}));
@@ -25,7 +30,7 @@ function Puzzle() {
             mode: 'cors'
         };
 
-        fetch('http://localhost:8080/unityContent/insertContent', requestOptions)
+        fetch(API.RECODE_RESULT, requestOptions)
             .then(response => response)
             .then(data => {
                 console.log('Category scores submitted:', data);
@@ -47,6 +52,12 @@ function Puzzle() {
         unityContext.on("SendWrongReaction",function (WrongReaction){
             setWrongReaction(WrongReaction);
             localStorage.setItem("Puzzle_WrongReaction",WrongReaction);
+        });
+        unityContext.on("ReturnMainMenu", (value) => {
+            console.log(value)
+            if (value === 200) {
+                handleMain();
+            }
         });
         handleReceive(endTime,CollectReaction,WrongReaction);
     },[endTime,CollectReaction,WrongReaction]);

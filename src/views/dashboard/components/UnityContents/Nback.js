@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Unity, {UnityContext} from "react-unity-webgl";
-
+import {useNavigate} from "react-router-dom";
+import {API} from '../../../../api/config'
 function Nback() {
     const unityContext = new UnityContext({
         loaderUrl: "build/NBack.loader.js",
@@ -8,16 +9,19 @@ function Nback() {
         frameworkUrl: "build/NBack.framework.js.unityweb",
         codeUrl: "build/NBack.wasm.unityweb",
     });
-
+    const navigator = useNavigate();
     const [rightRatio, setRightRatio] = useState(null);
+    const handleMain = () =>{
+        navigator('/dashboard');
+    }
     const handleReceive = async (rightRatio) => {
         try {
             const jwtToken = localStorage.getItem('accessToken');
-            const response = await fetch('http://localhost:8080/unityContent/insertContent', {
+            const response = await fetch(API.RECODE_RESULT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${jwtToken}`
+                   // 'Authorization': `Bearer ${jwtToken}`
                 },
                 body: JSON.stringify({ name:"nBack",score: rightRatio ,collect:0,wrong:0}),
                 mode: 'cors'
@@ -37,6 +41,12 @@ function Nback() {
             setRightRatio(rightRatio);
             localStorage.setItem("rightRatio",rightRatio);
             handleReceive(rightRatio);
+        });
+        unityContext.on("ReturnMainMenu", (value) => {
+            console.log(value)
+            if (value === 200) {
+                handleMain();
+            }
         });
     },[rightRatio]);
     const handleFullscreen = () => {
