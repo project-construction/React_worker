@@ -44,7 +44,7 @@ function Hammering() {
     };
 
     useEffect(function (){
-        unityContext.on("SendEndTime",function (endTime){
+        unityContext.on("SendEndTimeHammer",function (endTime){
             setEndTime(endTime);
             localStorage.setItem("Hammering_endTime",endTime);
 

@@ -1,7 +1,8 @@
 import React, { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
-import PrivateRoute from '../views/dashboard/components/PrivateRoute'; // PrivateRoute 컴포넌트 경로를 수정해야 합니다.
+import PrivateRoute from '../views/dashboard/components/PrivateRoute';
+import Mole from "../views/dashboard/components/UnityContents/Mole"; // PrivateRoute 컴포넌트 경로를 수정해야 합니다.
 
 /* ***Layouts**** */
 const FullLayout = Loadable(lazy(() => import('../layouts/full/FullLayout')));
@@ -42,6 +43,7 @@ const Routes = [
       { path: '/hammering', exact: true, element: <Hammering /> },
       { path: '/puzzle', exact: true, element: <Puzzle /> },
       { path: '/simon', exact: true, element: <Simon/> },
+      { path: '/mole', exact: true, element: <Mole/> },
       { path: '/trafficlight', exact: true, element: <TrafficLight /> },
       { path: '/survey', exact: true, element: <Kdas /> },
       {path: '/signature',exact:true,element: <Signature/>},

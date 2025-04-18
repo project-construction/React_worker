@@ -31,7 +31,7 @@ function Puzzle() {
         }
     };
     useEffect(function (){
-        unityContext.on("SendPassedRoundNum",function (passedRoundNum){
+        unityContext.on("SendPassedRoundNumSimon",function (passedRoundNum){
             setPassedRoundNum(passedRoundNum);
             localStorage.setItem("simon",passedRoundNum);
             handleReceive(passedRoundNum);
